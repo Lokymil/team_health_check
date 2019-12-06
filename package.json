@@ -3,9 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@nivo/bar": "^0.59.2",
+    "@nivo/radar": "^0.59.1",
+    "@nivo/scatterplot": "^0.59.3",
+    "csv.macro": "^1.0.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "react-select": "^3.0.8",
+    "react-svg-radar-chart": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
