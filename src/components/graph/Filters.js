@@ -7,7 +7,7 @@ const getFilteredLabel = data => {
   return headers.filter(header => !headersLabel.includes(header));
 };
 
-const getValuesGetHeaders = data => {
+const getValuesPerHeaders = data => {
   const filtersValuePerHeaders = getFilteredLabel(data).map(header => ({
     header,
     values: []
@@ -36,33 +36,59 @@ const getValuesGetHeaders = data => {
 };
 
 const getInitialFilters = filtersValuePerHeaders =>
-  filtersValuePerHeaders.reduce(
-    (acc, filter) => ({ ...acc, [filter.header]: undefined }),
-    {}
-  );
+  filtersValuePerHeaders.map(filter => ({
+    header: filter.header,
+    value: undefined
+  }));
 
-const Filters = ({ data, setFilters, filters }) => {
+const Filters = ({ data, setFilters, filters: appliedFilters }) => {
   const [filtersValuePerHeaders, setfiltersValuePerHeaders] = useState([]);
-  useEffect(() => setfiltersValuePerHeaders(getValuesGetHeaders(data)), [data]);
+  useEffect(() => setfiltersValuePerHeaders(getValuesPerHeaders(data)), [data]);
   useEffect(() => setFilters(getInitialFilters(filtersValuePerHeaders)), [
     setFilters,
     filtersValuePerHeaders
   ]);
 
+  const updateFilter = (header, value) => {
+    const updatedFilters = appliedFilters.map(filter => {
+      if (filter.header === header) {
+        return { ...filter, value };
+      }
+      return filter;
+    });
+
+    setFilters(updatedFilters);
+  };
+
+  const getCurrentFilterValue = (filterValues, filters) => {
+    const currentFilter = filters.find(
+      filter => filter.header === filterValues.header
+    );
+
+    if (!currentFilter) {
+      return { value: undefined, label: "No filter" };
+    }
+
+    return filterValues.values.find(
+      filterValue => filterValue.value === currentFilter.value
+    );
+  };
+
   return (
     <>
       <div>Number of people: {data.length}</div>
-      {filters &&
-        filtersValuePerHeaders.map(filter => (
-          <>
-            <label>{filter.header}</label>
+      {appliedFilters &&
+        filtersValuePerHeaders.map(filterValues => (
+          <div key={filterValues.header}>
+            <label>{filterValues.header}</label>
             <Select
-              key={filter.header}
-              options={filter.values}
-              //   onChange={option => setIsJunior(option.value)}
-              value={filters[filter.header]}
+              options={filterValues.values}
+              onChange={option =>
+                updateFilter(filterValues.header, option.value)
+              }
+              value={getCurrentFilterValue(filterValues, appliedFilters)}
             />
-          </>
+          </div>
         ))}
     </>
   );

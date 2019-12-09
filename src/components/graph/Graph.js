@@ -6,17 +6,25 @@ import Archetype from "./Archetype";
 import Filters from "./Filters";
 
 const Graph = ({ data }) => {
-  const [filters, setFilters] = useState({});
+  const [filters, setFilters] = useState([]);
+
+  let filteredData = data;
+  filters.forEach(filter => {
+    filteredData = filteredData.filter(
+      elem => !filter.value || elem[filter.header] === filter.value
+    );
+  });
+
   return (
     <div className="App" style={{ display: "flex", flexDirection: "column" }}>
       <div style={{ display: "flex", height: "800px" }}>
         <div style={{ height: "400px", width: "100%" }}>
-          <Radar data={data} />
-          <Motivation data={data} />
+          <Radar data={filteredData} />
+          <Motivation data={filteredData} />
         </div>
         <div style={{ height: "400px", width: "100%" }}>
-          <EtatEsprit data={data} />
-          <Archetype data={data} />
+          <EtatEsprit data={filteredData} />
+          <Archetype data={filteredData} />
         </div>
       </div>
       <Filters data={data} setFilters={setFilters} filters={filters} />
