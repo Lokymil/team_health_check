@@ -75,22 +75,17 @@ const Filters = ({ data, setFilters, filters: appliedFilters }) => {
   };
 
   return (
-    <>
-      <div>Number of people: {data.length}</div>
-      {appliedFilters &&
-        filtersValuePerHeaders.map(filterValues => (
-          <div key={filterValues.header}>
-            <label>{filterValues.header}</label>
-            <Select
-              options={filterValues.values}
-              onChange={option =>
-                updateFilter(filterValues.header, option.value)
-              }
-              value={getCurrentFilterValue(filterValues, appliedFilters)}
-            />
-          </div>
-        ))}
-    </>
+    appliedFilters &&
+    filtersValuePerHeaders.map(filterValues => (
+      <div key={filterValues.header}>
+        <label>{filterValues.header}</label>
+        <Select
+          options={filterValues.values}
+          onChange={option => updateFilter(filterValues.header, option.value)}
+          value={getCurrentFilterValue(filterValues, appliedFilters)}
+        />
+      </div>
+    ))
   );
 };
 

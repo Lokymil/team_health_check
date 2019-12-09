@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 
 function csvReader(csv) {
-  const lines = csv.split("\n");
+  const lines = csv.split("\n").filter(line => line);
   const result = [];
   const headers = lines[0].split(",");
 

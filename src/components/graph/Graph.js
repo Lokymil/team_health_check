@@ -27,6 +27,7 @@ const Graph = ({ data }) => {
           <Archetype data={filteredData} />
         </div>
       </div>
+      <div>Number of people: {filteredData.length}</div>
       <Filters data={data} setFilters={setFilters} filters={filters} />
     </div>
   );
