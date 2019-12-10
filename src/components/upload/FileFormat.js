@@ -1,27 +1,31 @@
 import React from "react";
 import { statsHeaders } from "../../utils";
+import "./FileFormat.css";
 
 const FileFormat = () => (
   <div>
+    <p>
+      Your '.csv' file must have at least 24 columns matching the following
+      rules. <br />
+      All other columns will be interpreted as filter.
+    </p>
     <table>
-      <tr>
-        <th>Name</th>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
         {statsHeaders.map(statsHeader => (
-          <td>{statsHeader.name}</td>
+          <tr key={statsHeader.name}>
+            <td>{statsHeader.name}</td>
+            <td>{statsHeader.description}</td>
+            <td>{statsHeader.type}</td>
+          </tr>
         ))}
-      </tr>
-      <tr>
-        <th>Description</th>
-        {statsHeaders.map(statsHeader => (
-          <td>{statsHeader.description}</td>
-        ))}
-      </tr>
-      <tr>
-        <th>Type</th>
-        {statsHeaders.map(statsHeader => (
-          <td>{statsHeader.type}</td>
-        ))}
-      </tr>
+      </tbody>
     </table>
   </div>
 );
