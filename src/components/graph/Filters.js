@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
-import { headersLabel } from "../../utils";
+import { getStatsHeadersLabel } from "../../utils";
 
 const getFilteredLabel = data => {
   const headers = Object.keys(data[0]);
-  return headers.filter(header => !headersLabel.includes(header));
+  return headers.filter(header => !getStatsHeadersLabel().includes(header));
 };
 
 const getValuesPerHeaders = data => {
