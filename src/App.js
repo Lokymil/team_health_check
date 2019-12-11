@@ -1,17 +1,22 @@
 import React, { useState } from "react";
+import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import Uploader from "./components/upload/Uploader";
 import Graph from "./components/graph/Graph";
+import { FileContext } from "./context/FileContext";
 
 const App = () => {
-  const [data, setData] = useState([]);
+  const [fileData, setFileData] = useState([]);
 
-  const handleUpload = csv => setData(csv);
-  const hasData = data.length > 0;
-
-  return !hasData ? (
-    <Uploader onUpload={handleUpload} />
-  ) : (
-    <Graph data={data} />
+  return (
+    <FileContext.Provider value={{ fileData, setFileData }}>
+      <BrowserRouter>
+        <Route exact path="/">
+          <Redirect to="/load" />
+        </Route>
+        <Route path="/load" component={Uploader} />
+        <Route path="/visualize" component={Graph} />
+      </BrowserRouter>
+    </FileContext.Provider>
   );
 };
 

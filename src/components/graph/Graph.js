@@ -4,8 +4,9 @@ import Motivation from "./Motivation";
 import EtatEsprit from "./EtatEsprit";
 import Archetype from "./Archetype";
 import Filters from "./Filters";
+import { withFileContext } from "../../context/FileContext";
 
-const Graph = ({ data }) => {
+const Graph = ({ fileData: data }) => {
   const [filters, setFilters] = useState([]);
 
   let filteredData = data;
@@ -33,4 +34,4 @@ const Graph = ({ data }) => {
   );
 };
 
-export default Graph;
+export default withFileContext(Graph);
