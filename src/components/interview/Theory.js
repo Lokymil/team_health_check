@@ -132,7 +132,8 @@ const Home = () => (
       Play with your personalized filters in order to have a clearer
       understanding of the health of your team.
     </p>
-    <Link to="/upload">Get my team's health check</Link>
+    <Link to="/upload">Get my team's health check</Link> <br />
+    <Link to="/tryit">Try it</Link>
   </article>
 );
 
