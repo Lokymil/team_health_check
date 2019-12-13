@@ -6,8 +6,13 @@ import Archetype from "./Archetype";
 import Filters from "./Filters";
 import { withFileContext } from "../../context/FileContext";
 
-const Graph = ({ fileData: data }) => {
+const Graph = ({ fileData: data, history }) => {
   const [filters, setFilters] = useState([]);
+
+  if (!data || data.length === 0) {
+    history.push("/upload");
+    return "";
+  }
 
   let filteredData = data;
   filters.forEach(filter => {

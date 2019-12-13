@@ -3,6 +3,7 @@ import MotivatorsOrdering from "./MotivatorsOrdering";
 import MotivatorsWeight from "./MotivatorsWeigth";
 import SatisfactionScale from "./SatisfactionScale";
 import OneToTenScale from "./OneToTenScale";
+import { withFileContext } from "../../../context/FileContext";
 
 const initialMotivators = [
   { name: "liberty", weight: 0 },
@@ -17,12 +18,35 @@ const initialMotivators = [
   { name: "order", weight: 0 }
 ];
 
-const Form = () => {
+const Form = ({ setFileData, history }) => {
   const [competency, setCompetency] = useState(0);
   const [challenge, setChallenge] = useState(0);
-  const [enterpriseSatisfaction, setEnterpriseSatisfaction] = useState();
-  const [personnalSatisfaction, setPersonnalSatisfaction] = useState();
+  const [enterprise, setEnterprise] = useState();
+  const [personnal, setPersonnal] = useState();
   const [motivators, setMotivators] = useState(initialMotivators);
+
+  const displayGraph = () => {
+    const motivatorsOrder = motivators.reduce(
+      (acc, elem, index) => ({ ...acc, [elem.name + "Matter"]: index }),
+      {}
+    );
+    const motivatorsScore = motivators.reduce(
+      (acc, elem) => ({ ...acc, [elem.name + "Score"]: elem.weight }),
+      {}
+    );
+
+    const data = {
+      competency,
+      challenge,
+      enterprise,
+      personnal,
+      ...motivatorsOrder,
+      ...motivatorsScore
+    };
+
+    setFileData([data]);
+    history.push("/visualize");
+  };
 
   return (
     <div>
@@ -53,14 +77,14 @@ const Form = () => {
         </label>
         <SatisfactionScale
           name="enterprise"
-          checkedValue={enterpriseSatisfaction}
-          setCheckedValue={setEnterpriseSatisfaction}
+          checkedValue={enterprise}
+          setCheckedValue={setEnterprise}
         />
         <label>4) How do you feel about your job ?</label>
         <SatisfactionScale
           name="personnal"
-          checkedValue={personnalSatisfaction}
-          setCheckedValue={setPersonnalSatisfaction}
+          checkedValue={personnal}
+          setCheckedValue={setPersonnal}
         />
       </div>
       <div>
@@ -83,8 +107,9 @@ const Form = () => {
           setMotivators={setMotivators}
         />
       </div>
+      <button onClick={displayGraph}>Show me my result !</button>
     </div>
   );
 };
 
-export default Form;
+export default withFileContext(Form);
