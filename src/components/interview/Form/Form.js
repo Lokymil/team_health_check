@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import MotivatorsOrdering from "./MotivatorsOrdering";
+import MotivatorsWeight from "./MotivatorsWeigth";
 
 const initialMotivators = [
-  "liberty",
-  "curiosity",
-  "acceptation",
-  "power",
-  "honor",
-  "relationship",
-  "goal",
-  "status",
-  "mastery",
-  "order"
+  { name: "liberty", weight: 0 },
+  { name: "curiosity", weight: 0 },
+  { name: "acceptation", weight: 0 },
+  { name: "power", weight: 0 },
+  { name: "honor", weight: 0 },
+  { name: "relationship", weight: 0 },
+  { name: "goal", weight: 0 },
+  { name: "status", weight: 0 },
+  { name: "mastery", weight: 0 },
+  { name: "order", weight: 0 }
 ];
 
 const get1to10Scale = (name, checkedValue = 0, setCheckedValue = () => {}) => {
@@ -73,10 +74,10 @@ const Form = () => {
   const [challenge, setChallenge] = useState(0);
   const [enterpriseSatisfaction, setEnterpriseSatisfaction] = useState();
   const [personnalSatisfation, setPersonnalSatisfation] = useState();
-  const [motivatorsOrder, setMotivatorsOrder] = useState(initialMotivators);
+  const [motivators, setMotivators] = useState(initialMotivators);
 
   return (
-    <form>
+    <div>
       <h1>Let's try it !</h1>
       The interview aim to create your health check report and help you
       understand what are the strength and weakness of your current job. For the
@@ -112,8 +113,8 @@ const Form = () => {
           Order the following motivators according to your scale of importance
         </label>
         <MotivatorsOrdering
-          motivators={motivatorsOrder}
-          updateOrder={setMotivatorsOrder}
+          motivators={motivators}
+          setMotivators={setMotivators}
         />
       </div>
       <div>
@@ -121,8 +122,12 @@ const Form = () => {
         <label>
           Weight each motivators according to what is happening on your job
         </label>
+        <MotivatorsWeight
+          motivators={motivators}
+          setMotivators={setMotivators}
+        />
       </div>
-    </form>
+    </div>
   );
 };
 

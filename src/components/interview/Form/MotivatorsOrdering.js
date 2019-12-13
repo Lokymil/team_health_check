@@ -31,7 +31,7 @@ const getListStyle = isDraggingOver => ({
   overflow: "auto"
 });
 
-const MotivatorsOrdering = ({ motivators = [], updateOrder }) => {
+const MotivatorsOrdering = ({ motivators = [], setMotivators }) => {
   const onDragEnd = result => {
     if (!result.destination) {
       return;
@@ -43,7 +43,7 @@ const MotivatorsOrdering = ({ motivators = [], updateOrder }) => {
       result.destination.index
     );
 
-    updateOrder(items);
+    setMotivators(items);
   };
 
   return (
@@ -56,7 +56,11 @@ const MotivatorsOrdering = ({ motivators = [], updateOrder }) => {
             {...provided.droppableProps}
           >
             {motivators.map((motivator, index) => (
-              <Draggable key={motivator} draggableId={motivator} index={index}>
+              <Draggable
+                key={motivator.name}
+                draggableId={motivator.name}
+                index={index}
+              >
                 {(provided, snapshot) => (
                   <div
                     ref={provided.innerRef}
@@ -67,7 +71,7 @@ const MotivatorsOrdering = ({ motivators = [], updateOrder }) => {
                       provided.draggableProps.style
                     )}
                   >
-                    {motivator}
+                    {motivator.name}
                   </div>
                 )}
               </Draggable>
