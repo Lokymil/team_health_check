@@ -1,17 +1,18 @@
 import React, { useState } from "react";
+import MotivatorsOrdering from "./MotivatorsOrdering";
 
-const initialMotivators = {
-  liberty: 0,
-  curiosity: 0,
-  acceptation: 0,
-  power: 0,
-  honor: 0,
-  relationship: 0,
-  goal: 0,
-  status: 0,
-  mastery: 0,
-  order: 0
-};
+const initialMotivators = [
+  "liberty",
+  "curiosity",
+  "acceptation",
+  "power",
+  "honor",
+  "relationship",
+  "goal",
+  "status",
+  "mastery",
+  "order"
+];
 
 const get1to10Scale = (name, checkedValue = 0, setCheckedValue = () => {}) => {
   const scale = [];
@@ -27,7 +28,7 @@ const get1to10Scale = (name, checkedValue = 0, setCheckedValue = () => {}) => {
           checked={i === checkedValue}
           onChange={() => setCheckedValue(i)}
         />
-        <label for={`${name}-${i}`}>{i}</label>
+        <label htmlFor={`${name}-${i}`}>{i}</label>
       </React.Fragment>
     );
   }
@@ -45,7 +46,7 @@ const getSatisfactionScale = (name, checkedValue, setCheckedValue) => (
       checked={checkedValue === 1}
       onChange={() => setCheckedValue(1)}
     />
-    <label for={`${name}-satisfied`}>Satisfied</label>
+    <label htmlFor={`${name}-satisfied`}>Satisfied</label>
     <input
       type="radio"
       id={`${name}-indifferent`}
@@ -54,7 +55,7 @@ const getSatisfactionScale = (name, checkedValue, setCheckedValue) => (
       checked={checkedValue === 0}
       onChange={() => setCheckedValue(0)}
     />
-    <label for={`${name}-indifferent`}>Indifferent</label>
+    <label htmlFor={`${name}-indifferent`}>Indifferent</label>
     <input
       type="radio"
       id={`${name}-unsatisfied`}
@@ -63,7 +64,7 @@ const getSatisfactionScale = (name, checkedValue, setCheckedValue) => (
       checked={checkedValue === -1}
       onChange={() => setCheckedValue(-1)}
     />
-    <label for={`${name}-unsatisfied`}>Unsatisfied</label>
+    <label htmlFor={`${name}-unsatisfied`}>Unsatisfied</label>
   </div>
 );
 
@@ -72,8 +73,7 @@ const Form = () => {
   const [challenge, setChallenge] = useState(0);
   const [enterpriseSatisfaction, setEnterpriseSatisfaction] = useState();
   const [personnalSatisfation, setPersonnalSatisfation] = useState();
-  const [matterLevels, setMatterLevels] = useState(initialMotivators);
-  const [scoreLevels, setScoreLevels] = useState(initialMotivators);
+  const [motivatorsOrder, setMotivatorsOrder] = useState(initialMotivators);
 
   return (
     <form>
@@ -111,6 +111,10 @@ const Form = () => {
         <label>
           Order the following motivators according to your scale of importance
         </label>
+        <MotivatorsOrdering
+          motivators={motivatorsOrder}
+          updateOrder={setMotivatorsOrder}
+        />
       </div>
       <div>
         <h2>How your motivators are impacted by your project</h2>

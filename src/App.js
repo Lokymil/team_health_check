@@ -4,7 +4,7 @@ import Uploader from "./components/upload/Uploader";
 import Graph from "./components/graph/Graph";
 import { FileContext } from "./context/FileContext";
 import Theory from "./components/interview/Theory";
-import Form from "./components/interview/Form";
+import Form from "./components/interview/Form/Form";
 
 const App = () => {
   const [fileData, setFileData] = useState([]);
