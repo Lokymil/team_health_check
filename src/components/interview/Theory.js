@@ -133,7 +133,7 @@ const Home = () => (
       understanding of the health of your team.
     </p>
     <Link to="/upload">Get my team's health check</Link> <br />
-    <Link to="/tryit">Try it</Link>
+    <Link to="/interview/tryit">Try it</Link>
   </article>
 );
 

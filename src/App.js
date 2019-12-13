@@ -13,10 +13,10 @@ const App = () => {
     <FileContext.Provider value={{ fileData, setFileData }}>
       <BrowserRouter>
         <Route exact path="/">
-          <Redirect to="/theory" />
+          <Redirect to="/interview/theory" />
         </Route>
-        <Route path="/theory" component={Theory} />
-        <Route path="/tryit" component={Form} />
+        <Route path="/interview/theory" component={Theory} />
+        <Route path="/interview/tryit" component={Form} />
         <Route path="/upload" component={Uploader} />
         <Route path="/visualize" component={Graph} />
       </BrowserRouter>
