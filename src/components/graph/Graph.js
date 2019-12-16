@@ -23,6 +23,7 @@ const Graph = ({ fileData: data, history }) => {
 
   return (
     <div className="App" style={{ display: "flex", flexDirection: "column" }}>
+      <h1>Visualization</h1>
       <div style={{ display: "flex", height: "800px" }}>
         <div style={{ height: "400px", width: "100%" }}>
           <Radar data={filteredData} />

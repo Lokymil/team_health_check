@@ -6,11 +6,12 @@ import { withFileContext } from "../../context/FileContext";
 const Uploader = ({ setFileData, history }) => {
   const handleUpload = data => {
     setFileData(data);
-    history.push("/visualize");
+    history.push("/visualize/graph");
   };
 
   return (
     <div>
+      <h1>Load your team's data</h1>
       <CsvLoader onUpload={handleUpload} />
       <FileFormat />
     </div>

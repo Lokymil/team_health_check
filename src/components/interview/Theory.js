@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Home = () => (
-  <article>
+  <div>
+    <h1>How to do it ?</h1>
     <p>
       Hello, Do you want to know what is the health of your team? We invite you
       to use our template of one-to-one interview in order to have factual data
@@ -133,7 +134,7 @@ const Home = () => (
     <Link to="/upload">Get my team's health check</Link>
     <br />
     <Link to="/interview/tryit">Try it</Link>
-  </article>
+  </div>
 );
 
 export default Home;

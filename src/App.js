@@ -20,8 +20,11 @@ const App = () => {
           </Route>
           <Route path="/interview/theory" component={Theory} />
           <Route path="/interview/tryit" component={Form} />
-          <Route path="/upload" component={Uploader} />
-          <Route path="/visualize" component={Graph} />
+          <Route exact path="/visualize">
+            <Redirect to="/visualize/upload" />
+          </Route>
+          <Route path="/visualize/upload" component={Uploader} />
+          <Route path="/visualize/graph" component={Graph} />
         </Layout>
       </BrowserRouter>
     </FileContext.Provider>
