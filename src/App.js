@@ -7,6 +7,7 @@ import Theory from "./components/interview/Theory";
 import Form from "./components/interview/Form/Form";
 import "./App.css";
 import Layout from "./components/layout/Layout";
+import ScrollToTopOnNavigate from "./components/navigation/ScrollToTopOnNavigate";
 
 const App = () => {
   const [fileData, setFileData] = useState([]);
@@ -14,6 +15,7 @@ const App = () => {
   return (
     <FileContext.Provider value={{ fileData, setFileData }}>
       <BrowserRouter>
+        <ScrollToTopOnNavigate />
         <Layout>
           <Route exact path="/">
             <Redirect to="/interview/theory" />
