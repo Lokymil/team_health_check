@@ -5,6 +5,8 @@ import Graph from "./components/graph/Graph";
 import { FileContext } from "./context/FileContext";
 import Theory from "./components/interview/Theory";
 import Form from "./components/interview/Form/Form";
+import "./App.css";
+import Layout from "./components/layout/Layout";
 
 const App = () => {
   const [fileData, setFileData] = useState([]);
@@ -12,13 +14,15 @@ const App = () => {
   return (
     <FileContext.Provider value={{ fileData, setFileData }}>
       <BrowserRouter>
-        <Route exact path="/">
-          <Redirect to="/interview/theory" />
-        </Route>
-        <Route path="/interview/theory" component={Theory} />
-        <Route path="/interview/tryit" component={Form} />
-        <Route path="/upload" component={Uploader} />
-        <Route path="/visualize" component={Graph} />
+        <Layout>
+          <Route exact path="/">
+            <Redirect to="/interview/theory" />
+          </Route>
+          <Route path="/interview/theory" component={Theory} />
+          <Route path="/interview/tryit" component={Form} />
+          <Route path="/upload" component={Uploader} />
+          <Route path="/visualize" component={Graph} />
+        </Layout>
       </BrowserRouter>
     </FileContext.Provider>
   );
