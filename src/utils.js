@@ -147,3 +147,20 @@ export const statsHeaders = [
 
 export const getStatsHeadersLabel = () =>
   statsHeaders.map(header => header.name);
+
+export const csvToJson = csv => {
+  const lines = csv.split("\n").filter(line => line);
+  const result = [];
+  const headers = lines[0].split(",");
+
+  for (let i = 1; i < lines.length; i++) {
+    const obj = {};
+    const currentline = lines[i].split(",");
+    for (let j = 0; j < headers.length; j++) {
+      obj[headers[j]] = currentline[j];
+    }
+    result.push(obj);
+  }
+
+  return result;
+};

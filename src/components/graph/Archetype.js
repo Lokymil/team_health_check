@@ -1,7 +1,11 @@
 import React from "react";
 import "./Archetype.css";
 
-const getInitial = () => [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+const getInitial = () => [
+  [0, 0, 0],
+  [0, 0, 0],
+  [0, 0, 0]
+];
 
 const formattedData = data =>
   data.reduce((acc, item) => {
@@ -31,7 +35,7 @@ const Archetype = ({ data }) => {
           <div>{formatData[0][1]}</div>
         </div>
         <div className="neutral">
-          <div>'Submarine' / low estim</div>
+          <div>'Submarine' / low self-estim</div>
           <div>{formatData[0][2]}</div>
         </div>
         <div className="archetype--header">Neutral</div>

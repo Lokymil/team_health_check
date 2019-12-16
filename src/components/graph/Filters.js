@@ -2,17 +2,19 @@ import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import { getStatsHeadersLabel } from "../../utils";
 
-const getFilteredLabel = data => {
+const getFiltersHeader = data => {
   const headers = Object.keys(data[0]);
   return headers.filter(header => !getStatsHeadersLabel().includes(header));
 };
 
 const getValuesPerHeaders = data => {
-  const filtersValuePerHeaders = getFilteredLabel(data).map(header => ({
+  // Create initial filters with label and empty values
+  const filtersValuePerHeaders = getFiltersHeader(data).map(header => ({
     header,
     values: []
   }));
 
+  // Add possible uniq values to filters according to data
   data.forEach(elem => {
     filtersValuePerHeaders.forEach(filter => {
       const value = elem[filter.header];
@@ -25,6 +27,7 @@ const getValuesPerHeaders = data => {
     });
   });
 
+  // Add default filter as no filter applied
   filtersValuePerHeaders.forEach(filter => {
     filter.values.push({
       value: undefined,
@@ -35,18 +38,22 @@ const getValuesPerHeaders = data => {
   return filtersValuePerHeaders;
 };
 
-const getInitialFilters = filtersValuePerHeaders =>
-  filtersValuePerHeaders.map(filter => ({
+const getInitialFilters = filters =>
+  filters.map(filter => ({
     header: filter.header,
     value: undefined
   }));
 
-const Filters = ({ data, setFilters, filters: appliedFilters }) => {
-  const [filtersValuePerHeaders, setfiltersValuePerHeaders] = useState([]);
-  useEffect(() => setfiltersValuePerHeaders(getValuesPerHeaders(data)), [data]);
-  useEffect(() => setFilters(getInitialFilters(filtersValuePerHeaders)), [
-    setFilters,
-    filtersValuePerHeaders
+const Filters = ({
+  data,
+  setFilters: setAppliedFilters,
+  filters: appliedFilters
+}) => {
+  const [initialFilters, setInitialFilters] = useState([]);
+  useEffect(() => setInitialFilters(getValuesPerHeaders(data)), [data]);
+  useEffect(() => setAppliedFilters(getInitialFilters(initialFilters)), [
+    setAppliedFilters,
+    initialFilters
   ]);
 
   const updateFilter = (header, value) => {
@@ -57,7 +64,7 @@ const Filters = ({ data, setFilters, filters: appliedFilters }) => {
       return filter;
     });
 
-    setFilters(updatedFilters);
+    setAppliedFilters(updatedFilters);
   };
 
   const getCurrentFilterValue = (filterValues, filters) => {
@@ -76,7 +83,7 @@ const Filters = ({ data, setFilters, filters: appliedFilters }) => {
 
   return (
     appliedFilters &&
-    filtersValuePerHeaders.map(filterValues => (
+    initialFilters.map(filterValues => (
       <div key={filterValues.header}>
         <label>{filterValues.header}</label>
         <Select

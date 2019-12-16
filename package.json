@@ -6,7 +6,6 @@
     "@nivo/bar": "^0.59.2",
     "@nivo/radar": "^0.59.1",
     "@nivo/scatterplot": "^0.59.3",
-    "csv.macro": "^1.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-beautiful-dnd": "^12.2.0",
