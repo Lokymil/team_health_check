@@ -1,6 +1,8 @@
+import "./FileFormat.scss";
+
 import React from "react";
+
 import { statsHeaders } from "../../utils";
-import "./FileFormat.css";
 
 const FileFormat = () => (
   <div>

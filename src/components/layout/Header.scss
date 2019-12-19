@@ -1,7 +1,9 @@
+@import "../../colors";
+
 .header-wrapper {
   width: 100%;
   height: 4rem;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid $base_black;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -41,6 +43,6 @@
 }
 
 .header-nav--current {
-  color: white;
-  background-color: black;
+  color: $base_white;
+  background-color: $base_black;
 }
