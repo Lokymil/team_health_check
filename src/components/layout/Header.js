@@ -1,7 +1,7 @@
-import "./Header.scss";
-
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+
+import "./Header.scss";
 
 const Header = () => (
   <div className="header-wrapper">
