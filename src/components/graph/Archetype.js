@@ -1,5 +1,6 @@
 import React from "react";
-import "./Archetype.css";
+
+import "./Archetype.scss";
 
 const getInitial = () => [
   [0, 0, 0],

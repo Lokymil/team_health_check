@@ -1,13 +1,15 @@
+import { BrowserRouter, Redirect, Route } from "react-router-dom";
 import React, { useState } from "react";
-import { BrowserRouter, Route, Redirect } from "react-router-dom";
-import Uploader from "./components/upload/Uploader";
-import Graph from "./components/graph/Graph";
+
 import { FileContext } from "./context/FileContext";
-import Theory from "./components/interview/Theory";
 import Form from "./components/interview/Form/Form";
-import "./App.css";
+import Graph from "./components/graph/Graph";
 import Layout from "./components/layout/Layout";
 import ScrollToTopOnNavigate from "./components/navigation/ScrollToTopOnNavigate";
+import Theory from "./components/interview/Theory";
+import Uploader from "./components/upload/Uploader";
+
+import "./App.scss";
 
 const App = () => {
   const [fileData, setFileData] = useState([]);

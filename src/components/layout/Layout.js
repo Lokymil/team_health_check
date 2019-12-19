@@ -1,6 +1,8 @@
 import React from "react";
-import "./Layout.css";
+
 import Header from "./Header";
+
+import "./Layout.scss";
 
 const Layout = ({ children }) => (
   <div className="layout--wrapper">
