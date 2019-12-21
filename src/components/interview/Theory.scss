@@ -47,7 +47,7 @@
 
     &--link {
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 6rem;
     }
   }
 
@@ -63,11 +63,11 @@
     }
 
     .with-image {
-      display: flex;
-      align-items: center;
+      clear: left;
 
       img {
-        margin: 1rem;
+        margin: 0 2rem 0 0;
+        float: left;
       }
     }
   }
@@ -84,6 +84,7 @@
 
     &--link {
       text-align: center;
+      margin-top: 4rem;
     }
   }
 }
