@@ -1,5 +1,7 @@
 import React from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import classNames from "classnames";
+import "./MotivatorsOrdering.scss";
 
 const reorder = (list, startIndex, endIndex) => {
   const result = Array.from(list);
@@ -8,28 +10,6 @@ const reorder = (list, startIndex, endIndex) => {
 
   return result;
 };
-
-const grid = 8;
-
-const getItemStyle = (isDragging, draggableStyle) => ({
-  // some basic styles to make the items look a bit nicer
-  userSelect: "none",
-  padding: grid * 2,
-  margin: `0 ${grid}px 0 0`,
-
-  // change background colour if dragging
-  background: isDragging ? "lightgreen" : "grey",
-
-  // styles we need to apply on draggables
-  ...draggableStyle
-});
-
-const getListStyle = isDraggingOver => ({
-  background: isDraggingOver ? "lightblue" : "lightgrey",
-  display: "flex",
-  padding: grid,
-  overflow: "auto"
-});
 
 const MotivatorsOrdering = ({ motivators = [], setMotivators }) => {
   const onDragEnd = result => {
@@ -52,7 +32,9 @@ const MotivatorsOrdering = ({ motivators = [], setMotivators }) => {
         {(provided, snapshot) => (
           <div
             ref={provided.innerRef}
-            style={getListStyle(snapshot.isDraggingOver)}
+            className={classNames("motivators--droppable", {
+              dragging: snapshot.isDraggingOver
+            })}
             {...provided.droppableProps}
           >
             {motivators.map((motivator, index) => (
@@ -64,12 +46,12 @@ const MotivatorsOrdering = ({ motivators = [], setMotivators }) => {
                 {(provided, snapshot) => (
                   <div
                     ref={provided.innerRef}
+                    className={classNames("motivators--draggable", {
+                      dragged: snapshot.isDragging
+                    })}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
-                    style={getItemStyle(
-                      snapshot.isDragging,
-                      provided.draggableProps.style
-                    )}
+                    style={provided.draggableProps.style}
                   >
                     {motivator.name}
                   </div>
