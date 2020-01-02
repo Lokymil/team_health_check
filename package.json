@@ -6,6 +6,7 @@
     "@nivo/bar": "^0.59.2",
     "@nivo/radar": "^0.59.1",
     "@nivo/scatterplot": "^0.59.3",
+    "classnames": "^2.2.6",
     "node-sass": "^4.13.0",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
