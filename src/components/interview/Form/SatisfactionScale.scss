@@ -1,0 +1,20 @@
+.satisfaction {
+  &--scale {
+    max-width: 25rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &--answer {
+    display: flex;
+    justify-content: center;
+  }
+
+  &--radio {
+    margin: 0;
+  }
+
+  &--label {
+    margin: 0 1ch;
+  }
+}

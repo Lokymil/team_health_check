@@ -1,11 +1,13 @@
 import React from "react";
+import classNames from "classnames";
+import "./OneToTenScale.scss";
 
-const OneToTenScale = ({ name, checkedValue, setCheckedValue }) => {
+const OneToTenScale = ({ name, checkedValue, setCheckedValue, className }) => {
   const scale = [];
 
   for (let i = 1; i < 11; i++) {
     scale.push(
-      <React.Fragment key={`radio-${i}`}>
+      <span key={`radio-${i}`} className="one-to-ten--answer">
         <input
           type="radio"
           id={`${name}-${i}`}
@@ -13,13 +15,18 @@ const OneToTenScale = ({ name, checkedValue, setCheckedValue }) => {
           name={name}
           checked={i === checkedValue}
           onChange={() => setCheckedValue(i)}
+          className="one-to-ten--radio"
         />
-        <label htmlFor={`${name}-${i}`}>{i}</label>
-      </React.Fragment>
+        <label htmlFor={`${name}-${i}`} className="one-to-ten--label">
+          {i}
+        </label>
+      </span>
     );
   }
 
-  return <div>{scale}</div>;
+  return (
+    <div className={classNames("one-to-ten--scale", className)}>{scale}</div>
+  );
 };
 
 export default OneToTenScale;
