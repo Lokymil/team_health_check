@@ -29,6 +29,10 @@ const MotivatorsOrdering = ({ motivators = [], setMotivators }) => {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
+      <div className="motivators--scale">
+        <span>More important</span>
+        <span>Less important</span>
+      </div>
       <Droppable droppableId="motivatorsOrdering" direction="horizontal">
         {(provided, snapshot) => (
           <div
@@ -61,7 +65,10 @@ const MotivatorsOrdering = ({ motivators = [], setMotivators }) => {
                       {...provided.dragHandleProps}
                       style={provided.draggableProps.style}
                     >
-                      {motivator.label}
+                      <span className="title">{motivator.label}</span>
+                      <span className="description">
+                        {motivator.description}
+                      </span>
                     </div>
                   )}
                 </Draggable>

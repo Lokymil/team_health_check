@@ -1,36 +1,58 @@
+@import "../../../colors";
+
 .motivators {
   &--droppable {
-    width: max-content;
     padding: 0.5rem;
-    border-radius: 0.1rem;
+    border-radius: 0.2rem;
     display: flex;
     overflow: auto;
-    background-color: lightgrey;
+    background-color: $light_grey;
 
     &.dragging {
-      background-color: lightblue;
+      background-color: $lighter_grey;
     }
   }
 
   &--draggable {
-    width: 6rem;
-    padding: 0.5rem 0;
-    border-radius: 0.1rem;
-    margin: 0 0.25rem 0 0;
+    padding: 0.5rem 0.25rem;
+    border-radius: 0.2rem;
+    margin: 0 0 0 0.25rem;
     display: flex;
-    justify-content: center;
+    flex: 1 1 10%;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     font-size: 0.875rem;
-    font-weight: bold;
     user-select: "none";
-    background-color: grey;
+    background-color: $base_white;
 
-    &:last-child {
+    &:first-child {
       margin: 0;
     }
 
     &.dragged {
-      background-color: green;
+      background-color: $light_blue;
     }
+
+    .title {
+      margin-bottom: 0.25rem;
+      font-weight: bold;
+      color: $base_blue;
+    }
+
+    .description {
+      font-size: 0.75rem;
+    }
+  }
+
+  &--scale {
+    padding: 0 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    font-weight: bold;
+    font-style: italic;
+    text-transform: uppercase;
+    color: $base_grey;
   }
 }

@@ -32,7 +32,7 @@ export const statsHeaders = [
     name: "libertyMatter",
     label: "Liberty",
     description:
-      "I am independantof others with my own work and responsibilities",
+      "I am independant of others with my own work and responsibilities",
     format:
       "Level of importance for 'liberty' criterion in 'Moving Motivators' game.",
     type: "Integer: Most important=1, Less important=10"
@@ -83,7 +83,7 @@ export const statsHeaders = [
   {
     name: "goalMatter",
     label: "Goal",
-    description: "My purpose in life s reflected in the work I do.",
+    description: "My purpose in life is reflected in the work I do.",
     format:
       "Level of importance for 'goal' criterion in 'Moving Motivators' game.",
     type: "Integer: Most important=1, Less important=10"
@@ -119,7 +119,7 @@ export const statsHeaders = [
     name: "libertyScore",
     label: "Liberty",
     description:
-      "I am independantof others with my own work and responsibilities",
+      "I am independant of others with my own work and responsibilities",
     format:
       "Level of satisfaction for 'liberty' criterion in 'Moving Motivators' game.",
     type: "Integer: Positive=1, Neutral=0, Negative=-1"
@@ -170,7 +170,7 @@ export const statsHeaders = [
   {
     name: "goalScore",
     label: "Goal",
-    description: "My purpose in life s reflected in the work I do.",
+    description: "My purpose in life is reflected in the work I do.",
     format:
       "Level of satisfaction for 'goal' criterion in 'Moving Motivators' game.",
     type: "Integer: Positive=1, Neutral=0, Negative=-1"

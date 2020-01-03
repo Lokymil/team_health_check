@@ -3,7 +3,6 @@
 body {
   margin: 0;
   font-family: "Open Sans", sans-serif;
-  font-size: 16px;
   background-color: $base_white;
   color: $base_black;
 }
@@ -18,7 +17,7 @@ h3 {
 button {
   border: 0;
   padding: 0.5rem 1.5rem;
-  border-radius: 0.1rem;
+  border-radius: 0.2rem;
   font-size: 1.2rem;
   text-decoration: none;
   color: $base_white;
@@ -28,5 +27,5 @@ button {
 }
 
 a {
-  padding: 12px 0;
+  padding: 0.75rem 0;
 }

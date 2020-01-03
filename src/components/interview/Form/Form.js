@@ -20,10 +20,10 @@ const initialMotivators = [
 ];
 
 const Form = ({ setFileData, history }) => {
-  const [competency, setCompetency] = useState(0);
-  const [challenge, setChallenge] = useState(0);
-  const [enterprise, setEnterprise] = useState();
-  const [personnal, setPersonnal] = useState();
+  const [competency, setCompetency] = useState(5);
+  const [challenge, setChallenge] = useState(5);
+  const [enterprise, setEnterprise] = useState(0);
+  const [personnal, setPersonnal] = useState(0);
   const [motivators, setMotivators] = useState(initialMotivators);
 
   const displayGraph = e => {
@@ -51,7 +51,7 @@ const Form = ({ setFileData, history }) => {
   };
 
   return (
-    <form onSubmit={displayGraph}>
+    <form onSubmit={displayGraph} className="interview">
       <h1>Let's try it !</h1>
       The interview aim to create your health check report and help you
       understand what are the strength and weakness of your current job. For the
