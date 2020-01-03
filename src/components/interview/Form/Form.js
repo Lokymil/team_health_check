@@ -52,12 +52,12 @@ const Form = ({ setFileData, history }) => {
 
   return (
     <form onSubmit={displayGraph}>
-      <h2>Let's try it !</h2>
+      <h1>Let's try it !</h1>
       The interview aim to create your health check report and help you
       understand what are the strength and weakness of your current job. For the
       report to be as precise and effective as possible, be sure to be honest on
       your answers.
-      <h3>Qualification & challenge</h3>
+      <h2>Qualification & challenge</h2>
       <label className="interview--question">
         1) How do you feel qualified for your job ?
       </label>
@@ -76,7 +76,7 @@ const Form = ({ setFileData, history }) => {
         setCheckedValue={setChallenge}
         className="interview--answers"
       />
-      <h3>Entreprise & personnal satisfaction</h3>
+      <h2>Entreprise & personnal satisfaction</h2>
       <label className="interview--question">
         3) According yo you, how does your entreprise/boss feel about you ?
       </label>
@@ -95,7 +95,7 @@ const Form = ({ setFileData, history }) => {
         setCheckedValue={setPersonnal}
         className="interview--answers"
       />
-      <h3>Your motivators</h3>
+      <h2>Your motivators</h2>
       <label className="interview--question">
         Order the following motivators according to your scale of importance:
       </label>
@@ -104,7 +104,7 @@ const Form = ({ setFileData, history }) => {
         setMotivators={setMotivators}
         className="interview--answers"
       />
-      <h3>How your motivators are impacted by your project</h3>
+      <h2>How your motivators are impacted by your project</h2>
       <label className="interview--question">
         Weight each motivators according to what is happening on your job:
       </label>

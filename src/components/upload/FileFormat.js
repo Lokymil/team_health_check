@@ -23,7 +23,7 @@ const FileFormat = () => (
         {statsHeaders.map(statsHeader => (
           <tr key={statsHeader.name}>
             <td>{statsHeader.name}</td>
-            <td>{statsHeader.description}</td>
+            <td>{statsHeader.format}</td>
             <td>{statsHeader.type}</td>
           </tr>
         ))}
