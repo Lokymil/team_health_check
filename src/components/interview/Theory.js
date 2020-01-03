@@ -1,9 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
-import questionMark from "./question-mark.svg";
-import cards from "./cards.svg";
-import heart from "./heart.svg";
 import Header from "../layout/Header";
 import useSticky from "../../hooks/useSticky";
 import "./Theory.scss";
@@ -33,7 +30,7 @@ const Home = () => {
       <section id="theory--why">
         <h2>Why?</h2>
         <p className="with-image">
-          <img src={heart} alt="" height="200" />
+          <img src="/img/heart.svg" alt="" height="200" />
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
           enim urna, fermentum nec congue in, dictum sit amet sem. Aliquam
           tincidunt ex odio, ut convallis nisi venenatis non. Sed sodales vitae
@@ -46,14 +43,14 @@ const Home = () => {
       <section id="theory--how">
         <h2>How does it work?</h2>
         <div className="with-image">
-          <img src={questionMark} alt="" />
+          <img src="/img/question-mark.svg" alt="" />
           <p>
             First of all, you will ask several questions to your collaborator.
             These questions will be used to determine ...
           </p>
         </div>
         <div className="with-image">
-          <img src={cards} alt="" />
+          <img src="/img/cards.svg" alt="" />
           <p>
             Then, your collaborator will be asked to use Moving Motivator cards
             to sort and assess theirs inherent motivation. With these
