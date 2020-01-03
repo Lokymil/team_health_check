@@ -1,7 +1,7 @@
 .interview {
   &--question {
     display: block;
-    margin: 1.5rem 0 0.5rem;
+    margin: 1.5rem 0 0.75rem;
   }
 
   &--answers {
@@ -10,5 +10,11 @@
 
   h2 {
     margin-top: 3rem;
+  }
+
+  &--submit-button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
   }
 }

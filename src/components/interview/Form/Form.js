@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import MotivatorsOrdering from "./MotivatorsOrdering";
-import MotivatorsWeight from "./MotivatorsWeigth";
+import MotivatorsWeight from "./MotivatorsWeight";
 import SatisfactionScale from "./SatisfactionScale";
 import OneToTenScale from "./OneToTenScale";
 import { withFileContext } from "../../../context/FileContext";
@@ -113,7 +113,9 @@ const Form = ({ setFileData, history }) => {
         setMotivators={setMotivators}
         className="interview--answers"
       />
-      <button type="submit">Show me my result !</button>
+      <div className="interview--submit-button-wrapper">
+        <button type="submit">Show me my result !</button>
+      </div>
     </form>
   );
 };

@@ -1,0 +1,68 @@
+@import "../../../colors";
+
+.motivators {
+  &--weights {
+    display: flex;
+  }
+
+  &--weight {
+    width: 7rem;
+    border-radius: 0;
+    border: 1px solid $lighter_grey;
+    border-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: $base_black;
+    background-color: $base_white;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+
+    &:first-child {
+      border-left: 1px solid $lighter_grey;
+      border-radius: 0.2rem 0 0 0.2rem;
+    }
+
+    &:last-child {
+      border-radius: 0 0.2rem 0.2rem 0;
+    }
+
+    &.selected {
+      color: $base_white;
+      background-color: $base_blue;
+
+      .icon {
+        background-color: $base_white;
+      }
+    }
+
+    .icon {
+      width: 2rem;
+      height: 2rem;
+      margin-bottom: 0.5rem;
+      background-color: $base_black;
+
+      &-happy {
+        -webkit-mask-image: url(/img/happy.svg);
+        mask-image: url(/img/happy.svg);
+        -webkit-mask-size: cover;
+        mask-size: cover;
+      }
+
+      &-neutral {
+        -webkit-mask-image: url(/img/neutral.svg);
+        mask-image: url(/img/neutral.svg);
+        -webkit-mask-size: cover;
+        mask-size: cover;
+      }
+
+      &-sad {
+        -webkit-mask-image: url(/img/sad.svg);
+        mask-image: url(/img/sad.svg);
+        -webkit-mask-size: cover;
+        mask-size: cover;
+      }
+    }
+  }
+}
