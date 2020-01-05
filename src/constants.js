@@ -1,0 +1,1 @@
+export const BREAKPOINTS = { SMALL: 400, MEDIUM: 700, LARGE: 1200 };

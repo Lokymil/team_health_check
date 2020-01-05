@@ -8,28 +8,42 @@ header {
   border-bottom: 1px solid $light_grey;
   transition: all 0.2s 0.1s ease-out;
 
-  #header--home-link {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    font-size: 1.5rem;
-    color: inherit;
-
-    img {
-      margin: 0.5rem;
-    }
+  .icon {
+    display: none;
   }
 
-  a {
-    width: 5rem;
-    padding: 1.3rem 0;
-    margin: 0 1rem;
-    text-align: center;
-    color: $base_black;
-    text-decoration: none;
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 
-    &.header-nav--current {
-      color: $base_blue;
+    a {
+      padding: 1.3rem 0;
+      margin: 0 1rem;
+      text-align: center;
+      color: $base_black;
+      text-decoration: none;
+
+      &.brand {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+        color: inherit;
+
+        img {
+          margin: 0.5rem;
+        }
+      }
+
+      &:not(.brand) {
+        width: 5rem;
+      }
+
+      &.header-nav--current {
+        color: $base_blue;
+      }
     }
   }
 
@@ -38,7 +52,7 @@ header {
     z-index: 2;
     background-color: $base_white;
 
-    #header--home-link {
+    .brand {
       color: $base_black;
     }
   }
@@ -48,6 +62,51 @@ header {
 
     &.header-nav--current {
       color: $base_white;
+    }
+  }
+
+  &.medium {
+    .icon {
+      display: block;
+      padding: 0.5rem;
+    }
+
+    .menu {
+      background-color: $base_grey;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 100vw;
+      max-width: 18rem;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      transition: left 0.2s ease-out;
+
+      a {
+        color: $light_grey;
+        width: unset;
+
+        &.brand {
+          flex: unset;
+          color: $base_white;
+        }
+
+        &.header-nav--current {
+          color: $base_white;
+        }
+      }
+
+      &.hidden {
+        left: -100vw;
+      }
+    }
+
+    &.sticky {
+      .icon {
+        color: $base_black;
+      }
     }
   }
 }
