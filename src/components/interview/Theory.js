@@ -46,15 +46,28 @@ const Home = () => {
           <img src="/img/question-mark.svg" alt="" />
           <p>
             First of all, you will ask several questions to your collaborator.
-            These questions will be used to determine ...
+            These questions will be used to determine their general mindset.
+            <br /> Are they feeling qualified for the job have to do and are
+            they satisfied with their current job ?
           </p>
         </div>
         <div className="with-image">
           <img src="/img/cards.svg" alt="" />
           <p>
-            Then, your collaborator will be asked to use Moving Motivator cards
-            to sort and assess theirs inherent motivation. With these
-            information, you will be able to...
+            Then, your collaborator will be asked to use Moving Motivator game
+            to sort and assess theirs inherent motivation.
+            <br />
+            With these information, you will be able to understand what each of
+            your co-worker are motivated by and what do they expect to find in
+            their job.
+          </p>
+        </div>
+        <div className="with-image">
+          <img src="/img/stats.svg" alt="" />
+          <p>
+            All these information will be expressed as factual and mesurable
+            data. It will allow you to effectively compare your team health
+            evolution.
           </p>
         </div>
         <div id="theory--how--link">
