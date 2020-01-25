@@ -66,10 +66,13 @@
       clear: left;
 
       img {
-        width: 3rem;
-        height: auto;
         margin: 0 2rem 0 0;
         float: left;
+
+        &.icon {
+          width: 3rem;
+          height: auto;
+        }
       }
     }
   }

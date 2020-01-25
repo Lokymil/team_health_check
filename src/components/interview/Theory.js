@@ -31,19 +31,18 @@ const Home = () => {
         <h2>Why?</h2>
         <p className="with-image">
           <img src="/img/heart.svg" alt="" height="200" />
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-          enim urna, fermentum nec congue in, dictum sit amet sem. Aliquam
-          tincidunt ex odio, ut convallis nisi venenatis non. Sed sodales vitae
-          augue vitae convallis. Cras nunc velit, vehicula vitae auctor id,
-          convallis eget lorem. Curabitur eu rhoncus urna. Etiam eu vestibulum
-          elit. Donec hendrerit ligula nec leo laoreet commodo ut et quam.
-          Suspendisse viverra placerat leo in dignissim.
+          Understand and help your team to grow is a difficult task. The point
+          of this website is to generate factual and mesurable data base on your
+          co-worker answer.
+          <br />
+          These dat will help you understand you team and take decision to make
+          your co-worker grow.
         </p>
       </section>
       <section id="theory--how">
         <h2>How does it work?</h2>
         <div className="with-image">
-          <img src="/img/question-mark.svg" alt="" />
+          <img className="icon" src="/img/question-mark.svg" alt="" />
           <p>
             First of all, you will ask several questions to your collaborator.
             These questions will be used to determine their general mindset.
@@ -52,7 +51,7 @@ const Home = () => {
           </p>
         </div>
         <div className="with-image">
-          <img src="/img/cards.svg" alt="" />
+          <img className="icon" src="/img/cards.svg" alt="" />
           <p>
             Then, your collaborator will be asked to use Moving Motivator game
             to sort and assess theirs inherent motivation.
@@ -63,7 +62,7 @@ const Home = () => {
           </p>
         </div>
         <div className="with-image">
-          <img src="/img/stats.svg" alt="" />
+          <img className="icon" src="/img/stats.svg" alt="" />
           <p>
             All these information will be expressed as factual and mesurable
             data. It will allow you to effectively compare your team health
