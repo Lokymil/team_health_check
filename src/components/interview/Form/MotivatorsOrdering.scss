@@ -4,21 +4,24 @@
   &--droppable {
     padding: 0.5rem;
     border-radius: 0.2rem;
-    display: flex;
-    overflow: auto;
     background-color: $light_grey;
 
-    &.dragging {
-      background-color: $lighter_grey;
+    &-context {
+      display: flex;
+      overflow: auto;
+      padding: 0;
+      &.dragging {
+        background-color: $lighter_grey;
+      }
     }
   }
 
   &--draggable {
+    min-width: 6.25rem;
     padding: 0.5rem 0.25rem;
     border-radius: 0.2rem;
     margin: 0 0 0 0.25rem;
     display: flex;
-    flex: 1 1 10%;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;

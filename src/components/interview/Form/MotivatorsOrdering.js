@@ -13,7 +13,7 @@ const reorder = (list, startIndex, endIndex) => {
 };
 
 const MotivatorsOrdering = ({ motivators = [], setMotivators }) => {
-  const onDragEnd = result => {
+  const onDragEnd = (result) => {
     if (!result.destination) {
       return;
     }
@@ -33,50 +33,52 @@ const MotivatorsOrdering = ({ motivators = [], setMotivators }) => {
         <span>More important</span>
         <span>Less important</span>
       </div>
-      <Droppable droppableId="motivatorsOrdering" direction="horizontal">
-        {(provided, snapshot) => (
-          <div
-            ref={provided.innerRef}
-            className={classNames("motivators--droppable", {
-              dragging: snapshot.isDraggingOver
-            })}
-            {...provided.droppableProps}
-          >
-            {motivators
-              .map(motivator => {
-                const header = statsHeaders.find(
-                  header => header.name === `${motivator.name}Matter`
-                );
-                return { ...header, name: motivator.name };
-              })
-              .map((motivator, index) => (
-                <Draggable
-                  key={motivator.name}
-                  draggableId={motivator.name}
-                  index={index}
-                >
-                  {(provided, snapshot) => (
-                    <div
-                      ref={provided.innerRef}
-                      className={classNames("motivators--draggable", {
-                        dragged: snapshot.isDragging
-                      })}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                      style={provided.draggableProps.style}
-                    >
-                      <span className="title">{motivator.label}</span>
-                      <span className="description">
-                        {motivator.description}
-                      </span>
-                    </div>
-                  )}
-                </Draggable>
-              ))}
-            {provided.placeholder}
-          </div>
-        )}
-      </Droppable>
+      <div className="motivators--droppable">
+        <Droppable droppableId="motivatorsOrdering" direction="horizontal">
+          {(provided, snapshot) => (
+            <div
+              ref={provided.innerRef}
+              className={classNames("motivators--droppable-context", {
+                dragging: snapshot.isDraggingOver,
+              })}
+              {...provided.droppableProps}
+            >
+              {motivators
+                .map((motivator) => {
+                  const header = statsHeaders.find(
+                    (header) => header.name === `${motivator.name}Matter`
+                  );
+                  return { ...header, name: motivator.name };
+                })
+                .map((motivator, index) => (
+                  <Draggable
+                    key={motivator.name}
+                    draggableId={motivator.name}
+                    index={index}
+                  >
+                    {(provided, snapshot) => (
+                      <div
+                        ref={provided.innerRef}
+                        className={classNames("motivators--draggable", {
+                          dragged: snapshot.isDragging,
+                        })}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        style={provided.draggableProps.style}
+                      >
+                        <span className="title">{motivator.label}</span>
+                        <span className="description">
+                          {motivator.description}
+                        </span>
+                      </div>
+                    )}
+                  </Draggable>
+                ))}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </div>
     </DragDropContext>
   );
 };
