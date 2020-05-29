@@ -31,30 +31,53 @@ const Home = () => {
         <h2>Why?</h2>
         <p className="with-image">
           <img src="/img/heart.svg" alt="" height="200" />
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-          enim urna, fermentum nec congue in, dictum sit amet sem. Aliquam
-          tincidunt ex odio, ut convallis nisi venenatis non. Sed sodales vitae
-          augue vitae convallis. Cras nunc velit, vehicula vitae auctor id,
-          convallis eget lorem. Curabitur eu rhoncus urna. Etiam eu vestibulum
-          elit. Donec hendrerit ligula nec leo laoreet commodo ut et quam.
-          Suspendisse viverra placerat leo in dignissim.
+          <p>
+            Understand and help your team grow is a difficult task. It is about
+            hearing everybody out on how they feel and relate to their team's
+            goal, know team's expectation, know enterprise expectation, etc...
+            In fact, it is mostly about feeling and abstract data.
+          </p>
+          <p>
+            In order to take the right decision and minimize risks, we need
+            facts and concrete data. This is what TeamHealthCheck is about,
+            generate concrete data based on your teammates feeling and
+            expectation.
+          </p>
+          <p>
+            However, this tool is what it is, a tool. It won't tell you what to
+            do or how to do it. But it will provide you numbers and facts to
+            rely on to take decisions or to monitor changes.
+          </p>
         </p>
       </section>
       <section id="theory--how">
         <h2>How does it work?</h2>
         <div className="with-image">
-          <img src="/img/question-mark.svg" alt="" />
+          <img className="icon" src="/img/question-mark.svg" alt="" />
           <p>
-            First of all, you will ask several questions to your collaborator.
-            These questions will be used to determine ...
+            First of all, we will ask several questions to your teammate. These
+            questions will be used to determine their general mindset.
+            <br /> Are they feeling qualified for the job they have to do and
+            are they satisfied with their current job ?
           </p>
         </div>
         <div className="with-image">
-          <img src="/img/cards.svg" alt="" />
+          <img className="icon" src="/img/cards.svg" alt="" />
           <p>
-            Then, your collaborator will be asked to use Moving Motivator cards
-            to sort and assess theirs inherent motivation. With these
-            information, you will be able to...
+            Then, your teammate will be asked to use Moving Motivator game to
+            sort and assess theirs inherent motivations.
+            <br />
+            With these information, you will be able to understand what each of
+            your co-worker are motivated by and what they expect to find in
+            their job.
+          </p>
+        </div>
+        <div className="with-image">
+          <img className="icon" src="/img/stats.svg" alt="" />
+          <p>
+            All these information will be expressed as factual and mesurable
+            data. It will allow you to effectively understand and monitor your
+            team health.
           </p>
         </div>
         <div id="theory--how--link">
