@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import MotivatorsOrdering from "./MotivatorsOrdering";
-import MotivatorsWeight from "./MotivatorsWeight";
 import SatisfactionScale from "./SatisfactionScale";
 import OneToTenScale from "./OneToTenScale";
 import { withFileContext } from "../../../context/FileContext";
@@ -16,7 +15,7 @@ const initialMotivators = [
   { name: "goal", weight: 0 },
   { name: "status", weight: 0 },
   { name: "mastery", weight: 0 },
-  { name: "order", weight: 0 }
+  { name: "order", weight: 0 },
 ];
 
 const Form = ({ setFileData, history }) => {
@@ -26,7 +25,7 @@ const Form = ({ setFileData, history }) => {
   const [personnal, setPersonnal] = useState(0);
   const [motivators, setMotivators] = useState(initialMotivators);
 
-  const displayGraph = e => {
+  const displayGraph = (e) => {
     e.preventDefault();
     const motivatorsOrder = motivators.reduce(
       (acc, elem, index) => ({ ...acc, [elem.name + "Matter"]: index }),
@@ -43,7 +42,7 @@ const Form = ({ setFileData, history }) => {
       enterprise,
       personnal,
       ...motivatorsOrder,
-      ...motivatorsScore
+      ...motivatorsScore,
     };
 
     setFileData([data]);
@@ -100,15 +99,6 @@ const Form = ({ setFileData, history }) => {
         Order the following motivators according to your scale of importance:
       </label>
       <MotivatorsOrdering
-        motivators={motivators}
-        setMotivators={setMotivators}
-        className="interview--answers"
-      />
-      <h2>How your motivators are impacted by your project</h2>
-      <label className="interview--question">
-        Weight each motivators according to what is happening on your job:
-      </label>
-      <MotivatorsWeight
         motivators={motivators}
         setMotivators={setMotivators}
         className="interview--answers"

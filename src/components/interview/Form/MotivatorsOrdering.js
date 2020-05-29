@@ -27,6 +27,17 @@ const MotivatorsOrdering = ({ motivators = [], setMotivators }) => {
     setMotivators(items);
   };
 
+  const handleWeight = (name, weight) => (e) => {
+    e.preventDefault();
+    const updatedWeight = motivators.map((motivator) => {
+      if (motivator.name === name) {
+        return { ...motivator, weight };
+      }
+      return motivator;
+    });
+    setMotivators(updatedWeight);
+  };
+
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <div className="motivators--scale">
@@ -48,7 +59,7 @@ const MotivatorsOrdering = ({ motivators = [], setMotivators }) => {
                   const header = statsHeaders.find(
                     (header) => header.name === `${motivator.name}Matter`
                   );
-                  return { ...header, name: motivator.name };
+                  return { ...header, ...motivator };
                 })
                 .map((motivator, index) => (
                   <Draggable
@@ -70,6 +81,32 @@ const MotivatorsOrdering = ({ motivators = [], setMotivators }) => {
                         <span className="description">
                           {motivator.description}
                         </span>
+                        <div className="motivators--weights">
+                          <button
+                            onClick={handleWeight(motivator.name, 1)}
+                            className={classNames("motivators--weight", {
+                              selected: motivator.weight === 1,
+                            })}
+                          >
+                            <div className="icon icon-happy" />
+                          </button>
+                          <button
+                            onClick={handleWeight(motivator.name, 0)}
+                            className={classNames("motivators--weight", {
+                              selected: motivator.weight === 0,
+                            })}
+                          >
+                            <div className="icon icon-neutral" />
+                          </button>
+                          <button
+                            onClick={handleWeight(motivator.name, -1)}
+                            className={classNames("motivators--weight", {
+                              selected: motivator.weight === -1,
+                            })}
+                          >
+                            <div className="icon icon-sad" />
+                          </button>
+                        </div>
                       </div>
                     )}
                   </Draggable>

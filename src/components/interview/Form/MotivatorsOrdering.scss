@@ -17,7 +17,11 @@
   }
 
   &--draggable {
+    position: relative;
+    width: 6.25rem;
     min-width: 6.25rem;
+    height: 9rem;
+    min-height: 9rem;
     padding: 0.5rem 0.25rem;
     border-radius: 0.2rem;
     margin: 0 0 0 0.25rem;
@@ -57,5 +61,56 @@
     font-style: italic;
     text-transform: uppercase;
     color: $base_grey;
+  }
+
+  &--weights {
+    position: absolute;
+    bottom: 0.25rem;
+    display: flex;
+  }
+
+  &--weight {
+    width: 2rem;
+    border: 0;
+    padding: 0.25rem;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.25rem;
+    background-color: transparent;
+
+    &.selected {
+      .icon {
+        background-color: $base_blue;
+      }
+    }
+
+    .icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      background-color: $light_grey;
+
+      &-happy {
+        -webkit-mask-image: url(/img/happy.svg);
+        mask-image: url(/img/happy.svg);
+        -webkit-mask-size: cover;
+        mask-size: cover;
+      }
+
+      &-neutral {
+        -webkit-mask-image: url(/img/neutral.svg);
+        mask-image: url(/img/neutral.svg);
+        -webkit-mask-size: cover;
+        mask-size: cover;
+      }
+
+      &-sad {
+        -webkit-mask-image: url(/img/sad.svg);
+        mask-image: url(/img/sad.svg);
+        -webkit-mask-size: cover;
+        mask-size: cover;
+      }
+    }
   }
 }
