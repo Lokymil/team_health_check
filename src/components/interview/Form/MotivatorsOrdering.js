@@ -41,6 +41,19 @@ const MotivatorsOrdering = ({ motivators = [], setMotivators }) => {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
+      <div className="motivators--satisfaction">
+        <div>
+          <div className="icon icon-happy"></div>: Satisfied, expectations are
+          fully met
+        </div>
+        <div>
+          <div className="icon icon-neutral"></div>: Neutral, expectations are
+          partially met
+        </div>
+        <div>
+          <div className="icon icon-sad"></div>: Sad, expectations are not met
+        </div>
+      </div>
       <div className="motivators--scale">
         <span>More important</span>
         <span>Less important</span>
