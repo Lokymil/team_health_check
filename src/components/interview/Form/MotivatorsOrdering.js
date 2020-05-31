@@ -3,6 +3,7 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import classNames from "classnames";
 import "./MotivatorsOrdering.scss";
 import { statsHeaders } from "../../../utils";
+import MotivatorCard from "./MotivatorCard";
 
 const reorder = (list, startIndex, endIndex) => {
   const result = Array.from(list);
@@ -27,7 +28,7 @@ const MotivatorsOrdering = ({ motivators = [], setMotivators }) => {
     setMotivators(items);
   };
 
-  const handleWeight = (name, weight) => (e) => {
+  const handleWeight = (name) => (weight) => (e) => {
     e.preventDefault();
     const updatedWeight = motivators.map((motivator) => {
       if (motivator.name === name) {
@@ -68,46 +69,14 @@ const MotivatorsOrdering = ({ motivators = [], setMotivators }) => {
                     index={index}
                   >
                     {(provided, snapshot) => (
-                      <div
-                        ref={provided.innerRef}
-                        className={classNames("motivators--draggable", {
-                          dragged: snapshot.isDragging,
-                        })}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        style={provided.draggableProps.style}
-                      >
-                        <span className="title">{motivator.label}</span>
-                        <span className="description">
-                          {motivator.description}
-                        </span>
-                        <div className="motivators--weights">
-                          <button
-                            onClick={handleWeight(motivator.name, 1)}
-                            className={classNames("motivators--weight", {
-                              selected: motivator.weight === 1,
-                            })}
-                          >
-                            <div className="icon icon-happy" />
-                          </button>
-                          <button
-                            onClick={handleWeight(motivator.name, 0)}
-                            className={classNames("motivators--weight", {
-                              selected: motivator.weight === 0,
-                            })}
-                          >
-                            <div className="icon icon-neutral" />
-                          </button>
-                          <button
-                            onClick={handleWeight(motivator.name, -1)}
-                            className={classNames("motivators--weight", {
-                              selected: motivator.weight === -1,
-                            })}
-                          >
-                            <div className="icon icon-sad" />
-                          </button>
-                        </div>
-                      </div>
+                      <MotivatorCard
+                        innerRef={provided.innerRef}
+                        draggableProps={provided.draggableProps}
+                        dragHandleProps={provided.dragHandleProps}
+                        isDragging={snapshot.isDragging}
+                        motivator={motivator}
+                        handleWeight={handleWeight(motivator.name)}
+                      />
                     )}
                   </Draggable>
                 ))}
