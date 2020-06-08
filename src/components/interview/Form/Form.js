@@ -80,7 +80,7 @@ const Form = ({ setFileData, history }) => {
       />
       <h2>Entreprise & personnal satisfaction</h2>
       <label className="interview--question">
-        3) According yo you, how does your entreprise/boss feel about you ?
+        3) According to you, how does your entreprise/boss feel about you ?
       </label>
       <SatisfactionScale
         name="enterprise"
