@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Radar from "./Radar";
-import Motivation from "./Motivation";
+import Motivation from "./motivation/Motivation";
 import EtatEsprit from "./EtatEsprit";
 import Archetype from "./Archetype";
 import Filters from "./Filters";
