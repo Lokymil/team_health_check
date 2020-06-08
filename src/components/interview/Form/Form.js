@@ -64,6 +64,8 @@ const Form = ({ setFileData, history }) => {
         checkedValue={competency}
         setCheckedValue={setCompetency}
         className="interview--answers"
+        lowerCaption="Not qualified"
+        upperCaption="Fully qualified"
       />
       <label className="interview--question">
         2) How do you feel challenged by your job ?
@@ -73,6 +75,8 @@ const Form = ({ setFileData, history }) => {
         checkedValue={challenge}
         setCheckedValue={setChallenge}
         className="interview--answers"
+        lowerCaption="No challenge"
+        upperCaption="Huge challenge"
       />
       <h2>Entreprise & personnal satisfaction</h2>
       <label className="interview--question">
