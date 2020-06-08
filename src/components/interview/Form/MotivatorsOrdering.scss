@@ -4,44 +4,64 @@
   &--droppable {
     padding: 0.5rem;
     border-radius: 0.2rem;
-    display: flex;
-    overflow: auto;
     background-color: $light_grey;
 
-    &.dragging {
-      background-color: $lighter_grey;
+    &-context {
+      display: flex;
+      overflow: auto;
+      padding: 0;
+      &.dragging {
+        background-color: $lighter_grey;
+      }
     }
   }
 
-  &--draggable {
-    padding: 0.5rem 0.25rem;
-    border-radius: 0.2rem;
-    margin: 0 0 0 0.25rem;
+  &--satisfaction {
     display: flex;
-    flex: 1 1 10%;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    font-size: 0.875rem;
-    user-select: "none";
-    background-color: $base_white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    font-style: italic;
+    color: $base-grey;
 
-    &:first-child {
-      margin: 0;
+    & > div {
+      display: flex;
+      margin: 0rem 1ch 0.5rem 0;
+
+      &::after {
+        content: ",";
+      }
+
+      &:last-child::after {
+        content: "";
+      }
     }
 
-    &.dragged {
-      background-color: $light_blue;
-    }
+    .icon {
+      width: 1rem;
+      height: 1rem;
+      background-color: $base_grey;
+      margin-right: 0.5ch;
 
-    .title {
-      margin-bottom: 0.25rem;
-      font-weight: bold;
-      color: $base_blue;
-    }
+      &-happy {
+        -webkit-mask-image: url(/img/happy.svg);
+        mask-image: url(/img/happy.svg);
+        -webkit-mask-size: cover;
+        mask-size: cover;
+      }
 
-    .description {
-      font-size: 0.75rem;
+      &-neutral {
+        -webkit-mask-image: url(/img/neutral.svg);
+        mask-image: url(/img/neutral.svg);
+        -webkit-mask-size: cover;
+        mask-size: cover;
+      }
+
+      &-sad {
+        -webkit-mask-image: url(/img/sad.svg);
+        mask-image: url(/img/sad.svg);
+        -webkit-mask-size: cover;
+        mask-size: cover;
+      }
     }
   }
 

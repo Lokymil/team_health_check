@@ -29,7 +29,7 @@ const Home = () => {
       </section>
       <section id="theory--why">
         <h2>Why?</h2>
-        <p className="with-image">
+        <article className="with-image">
           <img src="/img/heart.svg" alt="" height="200" />
           <p>
             Understand and help your team grow is a difficult task. It is about
@@ -48,7 +48,7 @@ const Home = () => {
             do or how to do it. But it will provide you numbers and facts to
             rely on to take decisions or to monitor changes.
           </p>
-        </p>
+        </article>
       </section>
       <section id="theory--how">
         <h2>How does it work?</h2>

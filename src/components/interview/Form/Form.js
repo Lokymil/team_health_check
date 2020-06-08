@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import MotivatorsOrdering from "./MotivatorsOrdering";
-import MotivatorsWeight from "./MotivatorsWeight";
 import SatisfactionScale from "./SatisfactionScale";
 import OneToTenScale from "./OneToTenScale";
 import { withFileContext } from "../../../context/FileContext";
@@ -16,7 +15,7 @@ const initialMotivators = [
   { name: "goal", weight: 0 },
   { name: "status", weight: 0 },
   { name: "mastery", weight: 0 },
-  { name: "order", weight: 0 }
+  { name: "order", weight: 0 },
 ];
 
 const Form = ({ setFileData, history }) => {
@@ -26,7 +25,7 @@ const Form = ({ setFileData, history }) => {
   const [personnal, setPersonnal] = useState(0);
   const [motivators, setMotivators] = useState(initialMotivators);
 
-  const displayGraph = e => {
+  const displayGraph = (e) => {
     e.preventDefault();
     const motivatorsOrder = motivators.reduce(
       (acc, elem, index) => ({ ...acc, [elem.name + "Matter"]: index }),
@@ -43,7 +42,7 @@ const Form = ({ setFileData, history }) => {
       enterprise,
       personnal,
       ...motivatorsOrder,
-      ...motivatorsScore
+      ...motivatorsScore,
     };
 
     setFileData([data]);
@@ -53,10 +52,9 @@ const Form = ({ setFileData, history }) => {
   return (
     <form onSubmit={displayGraph} className="interview">
       <h1>Let's try it !</h1>
-      The interview aim to create your health check report and help you
-      understand what are the strength and weakness of your current job. For the
-      report to be as precise and effective as possible, be sure to be honest on
-      your answers.
+      This interview aim to create your health check report and help you
+      understand how do you feel about your current job. For the report to be as
+      precise and effective as possible, be sure to be honest on your answers.
       <h2>Qualification & challenge</h2>
       <label className="interview--question">
         1) How do you feel qualified for your job ?
@@ -66,6 +64,8 @@ const Form = ({ setFileData, history }) => {
         checkedValue={competency}
         setCheckedValue={setCompetency}
         className="interview--answers"
+        lowerCaption="Not qualified"
+        upperCaption="Fully qualified"
       />
       <label className="interview--question">
         2) How do you feel challenged by your job ?
@@ -75,6 +75,8 @@ const Form = ({ setFileData, history }) => {
         checkedValue={challenge}
         setCheckedValue={setChallenge}
         className="interview--answers"
+        lowerCaption="No challenge"
+        upperCaption="Huge challenge"
       />
       <h2>Entreprise & personnal satisfaction</h2>
       <label className="interview--question">
@@ -97,18 +99,10 @@ const Form = ({ setFileData, history }) => {
       />
       <h2>Your motivators</h2>
       <label className="interview--question">
-        Order the following motivators according to your scale of importance:
+        Order the following motivators according to your scale of importance and
+        select your satisfaction level about each motivators:
       </label>
       <MotivatorsOrdering
-        motivators={motivators}
-        setMotivators={setMotivators}
-        className="interview--answers"
-      />
-      <h2>How your motivators are impacted by your project</h2>
-      <label className="interview--question">
-        Weight each motivators according to what is happening on your job:
-      </label>
-      <MotivatorsWeight
         motivators={motivators}
         setMotivators={setMotivators}
         className="interview--answers"

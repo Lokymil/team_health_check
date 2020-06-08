@@ -2,7 +2,14 @@ import React from "react";
 import classNames from "classnames";
 import "./OneToTenScale.scss";
 
-const OneToTenScale = ({ name, checkedValue, setCheckedValue, className }) => {
+const OneToTenScale = ({
+  name,
+  checkedValue,
+  setCheckedValue,
+  className,
+  lowerCaption,
+  upperCaption,
+}) => {
   const scale = [];
 
   for (let i = 1; i < 11; i++) {
@@ -25,7 +32,15 @@ const OneToTenScale = ({ name, checkedValue, setCheckedValue, className }) => {
   }
 
   return (
-    <div className={classNames("one-to-ten--scale", className)}>{scale}</div>
+    <div className={classNames("one-to-ten--wrapper", className)}>
+      {lowerCaption && (
+        <span className="one-to-ten--caption">{lowerCaption}</span>
+      )}
+      <div className={"one-to-ten--scale"}>{scale}</div>
+      {upperCaption && (
+        <span className="one-to-ten--caption">{upperCaption}</span>
+      )}
+    </div>
   );
 };
 
