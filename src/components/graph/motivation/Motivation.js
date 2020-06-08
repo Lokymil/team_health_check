@@ -34,7 +34,7 @@ const formattedData = (data) => {
     x: item.competency,
     y: item.challenge,
   }));
-  const scatter = { id: "Team", data: points };
+  const scatter = { id: "Team members", data: points };
   return [...initial, scatter];
 };
 

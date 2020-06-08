@@ -5,6 +5,7 @@ import EtatEsprit from "./EtatEsprit";
 import Archetype from "./Archetype";
 import Filters from "./Filters";
 import { withFileContext } from "../../context/FileContext";
+import "./Graph.scss";
 
 const Graph = ({ fileData: data, history }) => {
   const [filters, setFilters] = useState([]);
@@ -22,16 +23,24 @@ const Graph = ({ fileData: data, history }) => {
   });
 
   return (
-    <div className="App" style={{ display: "flex", flexDirection: "column" }}>
+    <div className="graph__wrapper">
       <h1>Visualization</h1>
-      <div style={{ display: "flex", height: "800px" }}>
-        <div style={{ height: "400px", width: "100%" }}>
-          <Radar data={filteredData} />
-          <EtatEsprit data={filteredData} />
+      <div className="graph__content">
+        <div className="graph__row">
+          <div className="graph__graph">
+            <Radar data={filteredData} />
+          </div>
+          <div className="graph__graph">
+            <Motivation data={filteredData} />
+          </div>
         </div>
-        <div style={{ height: "400px", width: "100%" }}>
-          <Motivation data={filteredData} />
-          <Archetype data={filteredData} />
+        <div className="graph__row">
+          <div className="graph__graph">
+            <EtatEsprit data={filteredData} />
+          </div>
+          <div className="graph__graph">
+            <Archetype data={filteredData} />
+          </div>
         </div>
       </div>
       <div>Number of people: {filteredData.length}</div>
