@@ -54,7 +54,7 @@ const Form = ({ setFileData, history }) => {
       <h1>Let's try it !</h1>
       This interview aim to create your health check report and help you
       understand how do you feel about your current job. For the report to be as
-      precise and effective as possible, be sure to be honest on your answers.
+      accurate and effective as possible, be sure to be honest on your answers.
       <h2>Qualification & challenge</h2>
       <label className="interview--question">
         1) How do you feel qualified for your job ?
@@ -99,8 +99,8 @@ const Form = ({ setFileData, history }) => {
       />
       <h2>Your motivators</h2>
       <label className="interview--question">
-        Order the following motivators according to your scale of importance and
-        select your satisfaction level about each motivators:
+        Order the following motivators according to your own scale of importance
+        and select your satisfaction level about each motivators:
       </label>
       <MotivatorsOrdering
         motivators={motivators}
