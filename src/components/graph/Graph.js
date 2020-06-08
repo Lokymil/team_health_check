@@ -15,9 +15,9 @@ const Graph = ({ fileData: data, history }) => {
   }
 
   let filteredData = data;
-  filters.forEach(filter => {
+  filters.forEach((filter) => {
     filteredData = filteredData.filter(
-      elem => !filter.value || elem[filter.header] === filter.value
+      (elem) => !filter.value || elem[filter.header] === filter.value
     );
   });
 
@@ -27,10 +27,10 @@ const Graph = ({ fileData: data, history }) => {
       <div style={{ display: "flex", height: "800px" }}>
         <div style={{ height: "400px", width: "100%" }}>
           <Radar data={filteredData} />
-          <Motivation data={filteredData} />
+          <EtatEsprit data={filteredData} />
         </div>
         <div style={{ height: "400px", width: "100%" }}>
-          <EtatEsprit data={filteredData} />
+          <Motivation data={filteredData} />
           <Archetype data={filteredData} />
         </div>
       </div>
