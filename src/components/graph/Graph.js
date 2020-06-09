@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Radar from "./radar/Radar";
 import Motivation from "./motivation/Motivation";
 import Mindset from "./mindset/Mindset";
-import Archetype from "./Archetype";
+import Archetype from "./archetype/Archetype";
 import Filters from "./Filters";
 import { withFileContext } from "../../context/FileContext";
 import "./Graph.scss";
@@ -38,10 +38,10 @@ const Graph = ({ fileData: data, history }) => {
         <h2>Mindset</h2>
         <div className="graph__row">
           <div className="graph__graph">
-            <Archetype data={filteredData} />
+            <Mindset data={filteredData} />
           </div>
           <div className="graph__graph">
-            <Mindset data={filteredData} />
+            <Archetype data={filteredData} />
           </div>
         </div>
       </div>
