@@ -34,8 +34,8 @@ const Home = () => {
           <p>
             Understand and help your team grow is a difficult task. It is about
             hearing everybody out on how they feel and relate to their team's
-            goal, know team's expectation, know enterprise expectation, etc...
-            In fact, it is mostly about feeling and abstract data.
+            goal, know team's expectation, know company expectation, etc... In
+            fact, it is mostly about feeling and abstract data.
           </p>
           <p>
             In order to take the right decision and minimize risks, we need
