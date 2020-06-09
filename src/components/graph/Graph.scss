@@ -1,0 +1,25 @@
+.graph {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5rem;
+  }
+
+  &__graph {
+    height: 25rem;
+    flex-basis: 40rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+}

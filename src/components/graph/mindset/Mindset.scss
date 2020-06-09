@@ -1,0 +1,11 @@
+.mindset {
+  &__title-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  &__title {
+    margin-right: 1ch;
+  }
+}

@@ -51,7 +51,8 @@ const MotivatorsOrdering = ({ motivators = [], setMotivators }) => {
           partially met
         </div>
         <div>
-          <div className="icon icon-sad"></div>: Sad, expectations are not met
+          <div className="icon icon-sad"></div>: Unsatisfied, expectations are
+          not met
         </div>
       </div>
       <div className="motivators--scale">
