@@ -1,6 +1,7 @@
 import React from "react";
 import { ResponsiveRadar } from "@nivo/radar";
-import InfoModal from "../modal/InfoModal";
+import "./Radar.scss";
+import RadarModal from "./RadarModal";
 
 const fieldTypeMatter = "Matter";
 const fieldTypeScore = "Score";
@@ -46,7 +47,10 @@ const getFormattedData = (data) => {
 const Radar = ({ data }) => {
   return (
     <>
-      <InfoModal>My info modal</InfoModal>
+      <div className="radar__title-wrapper">
+        <h2 className="radar__title">Moving motivators radar</h2>
+        <RadarModal />
+      </div>
       <ResponsiveRadar
         data={getFormattedData(data)}
         keys={["Importance", "Score"]}

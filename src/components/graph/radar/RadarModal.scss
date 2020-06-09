@@ -1,0 +1,11 @@
+.radar-modal {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__img-wrapper {
+    margin: 0 5rem;
+  }
+}

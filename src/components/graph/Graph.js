@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Radar from "./Radar";
+import Radar from "./radar/Radar";
 import Motivation from "./motivation/Motivation";
 import EtatEsprit from "./EtatEsprit";
 import Archetype from "./Archetype";
