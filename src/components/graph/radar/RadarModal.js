@@ -11,8 +11,16 @@ const RadarModal = () => (
       <article className="radar-modal__caption">
         <h4>Caption</h4>
         <ul>
-          <li>Importance: higher value means higher impact and expectation</li>
-          <li>Score: higher value means higher satisfaction</li>
+          <li>
+            <span className="radar-modal__caption-name importance">
+              Importance:
+            </span>
+            higher value means higher impact and expectation
+          </li>
+          <li>
+            <span className="radar-modal__caption-name score">Score:</span>
+            higher value means higher satisfaction
+          </li>
         </ul>
         <h4>How to read</h4>
         <p>

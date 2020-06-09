@@ -1,3 +1,5 @@
+@import "../../../colors";
+
 .radar-modal {
   &__wrapper {
     display: flex;
@@ -7,5 +9,19 @@
 
   &__img-wrapper {
     margin: 0 5rem;
+  }
+
+  &__caption-name {
+    margin-right: 1ch;
+    font-weight: bold;
+    font-style: italic;
+
+    &.importance {
+      color: $base_blue;
+    }
+
+    &.score {
+      color: $dark_yellow;
+    }
   }
 }
