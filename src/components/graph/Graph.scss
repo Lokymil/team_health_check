@@ -8,14 +8,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
   }
 
   &__row {
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
   }
 
   &__graph {

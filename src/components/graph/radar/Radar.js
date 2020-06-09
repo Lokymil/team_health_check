@@ -48,7 +48,7 @@ const Radar = ({ data }) => {
   return (
     <>
       <div className="radar__title-wrapper">
-        <h2 className="radar__title">Moving motivators radar</h2>
+        <h3 className="radar__title">Moving motivators radar</h3>
         <RadarModal />
       </div>
       <ResponsiveRadar

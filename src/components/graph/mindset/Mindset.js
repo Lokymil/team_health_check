@@ -6,16 +6,16 @@ const getInitial = () => [
   { id: "Negative", "number of person": 0 },
   { id: "Neutral", "number of person": 0 },
   { id: "Positive", "number of person": 0 },
-  { id: "Excellent", "number of person": 0 }
+  { id: "Excellent", "number of person": 0 },
 ];
-const formattedData = data =>
+const formattedData = (data) =>
   data.reduce((acc, item) => {
     const index = 2 + parseInt(item.enterprise) + parseInt(item.personnal);
     acc[index]["number of person"] += 1;
     return acc;
   }, getInitial());
 
-const EtatEsprit = ({ data }) => (
+const Mindset = ({ data }) => (
   <ResponsiveBar
     data={formattedData(data)}
     keys={["number of person"]}
@@ -39,13 +39,13 @@ const EtatEsprit = ({ data }) => (
           {
             on: "hover",
             style: {
-              itemOpacity: 1
-            }
-          }
-        ]
-      }
+              itemOpacity: 1,
+            },
+          },
+        ],
+      },
     ]}
   />
 );
 
-export default EtatEsprit;
+export default Mindset;

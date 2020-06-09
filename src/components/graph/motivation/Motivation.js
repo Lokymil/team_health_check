@@ -44,9 +44,9 @@ const Motivation = ({ data }) => {
   return (
     <>
       <div className="motivation__title-wrapper">
-        <h2 className="motivation__title">
+        <h3 className="motivation__title">
           Motivation: challenge vs qualification
-        </h2>
+        </h3>
         <MotivationModal />
       </div>
       <ResponsiveScatterPlot

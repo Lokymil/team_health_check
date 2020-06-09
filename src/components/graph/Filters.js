@@ -2,24 +2,24 @@ import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import { getStatsHeadersLabel } from "../../utils";
 
-const getFiltersHeader = data => {
+const getFiltersHeader = (data) => {
   const headers = Object.keys(data[0]);
-  return headers.filter(header => !getStatsHeadersLabel().includes(header));
+  return headers.filter((header) => !getStatsHeadersLabel().includes(header));
 };
 
-const getValuesPerHeaders = data => {
+const getValuesPerHeaders = (data) => {
   // Create initial filters with label and empty values
-  const filtersValuePerHeaders = getFiltersHeader(data).map(header => ({
+  const filtersValuePerHeaders = getFiltersHeader(data).map((header) => ({
     header,
-    values: []
+    values: [],
   }));
 
   // Add possible uniq values to filters according to data
-  data.forEach(elem => {
-    filtersValuePerHeaders.forEach(filter => {
+  data.forEach((elem) => {
+    filtersValuePerHeaders.forEach((filter) => {
       const value = elem[filter.header];
       const hasValue = filter.values.some(
-        filterValue => filterValue.value === value
+        (filterValue) => filterValue.value === value
       );
       if (!hasValue) {
         filter.values.push({ value, label: value });
@@ -28,36 +28,36 @@ const getValuesPerHeaders = data => {
   });
 
   // Add default filter as no filter applied
-  filtersValuePerHeaders.forEach(filter => {
+  filtersValuePerHeaders.forEach((filter) => {
     filter.values.push({
       value: undefined,
-      label: "No filter"
+      label: "No filter",
     });
   });
 
   return filtersValuePerHeaders;
 };
 
-const getInitialFilters = filters =>
-  filters.map(filter => ({
+const getInitialFilters = (filters) =>
+  filters.map((filter) => ({
     header: filter.header,
-    value: undefined
+    value: undefined,
   }));
 
 const Filters = ({
   data,
   setFilters: setAppliedFilters,
-  filters: appliedFilters
+  filters: appliedFilters,
 }) => {
   const [initialFilters, setInitialFilters] = useState([]);
   useEffect(() => setInitialFilters(getValuesPerHeaders(data)), [data]);
   useEffect(() => setAppliedFilters(getInitialFilters(initialFilters)), [
     setAppliedFilters,
-    initialFilters
+    initialFilters,
   ]);
 
   const updateFilter = (header, value) => {
-    const updatedFilters = appliedFilters.map(filter => {
+    const updatedFilters = appliedFilters.map((filter) => {
       if (filter.header === header) {
         return { ...filter, value };
       }
@@ -69,7 +69,7 @@ const Filters = ({
 
   const getCurrentFilterValue = (filterValues, filters) => {
     const currentFilter = filters.find(
-      filter => filter.header === filterValues.header
+      (filter) => filter.header === filterValues.header
     );
 
     if (!currentFilter) {
@@ -77,22 +77,30 @@ const Filters = ({
     }
 
     return filterValues.values.find(
-      filterValue => filterValue.value === currentFilter.value
+      (filterValue) => filterValue.value === currentFilter.value
     );
   };
 
+  if (!appliedFilters || appliedFilters.length <= 0) {
+    return null;
+  }
+
   return (
-    appliedFilters &&
-    initialFilters.map(filterValues => (
-      <div key={filterValues.header}>
-        <label>{filterValues.header}</label>
-        <Select
-          options={filterValues.values}
-          onChange={option => updateFilter(filterValues.header, option.value)}
-          value={getCurrentFilterValue(filterValues, appliedFilters)}
-        />
-      </div>
-    ))
+    <>
+      <h2>Filters</h2>
+      {initialFilters.map((filterValues) => (
+        <div key={filterValues.header}>
+          <label>{filterValues.header}</label>
+          <Select
+            options={filterValues.values}
+            onChange={(option) =>
+              updateFilter(filterValues.header, option.value)
+            }
+            value={getCurrentFilterValue(filterValues, appliedFilters)}
+          />
+        </div>
+      ))}
+    </>
   );
 };
 

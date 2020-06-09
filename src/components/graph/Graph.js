@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Radar from "./radar/Radar";
 import Motivation from "./motivation/Motivation";
-import EtatEsprit from "./EtatEsprit";
+import Mindset from "./mindset/Mindset";
 import Archetype from "./Archetype";
 import Filters from "./Filters";
 import { withFileContext } from "../../context/FileContext";
@@ -26,6 +26,7 @@ const Graph = ({ fileData: data, history }) => {
     <div className="graph__wrapper">
       <h1>Visualization</h1>
       <div className="graph__content">
+        <h2>Motivation</h2>
         <div className="graph__row">
           <div className="graph__graph">
             <Radar data={filteredData} />
@@ -34,16 +35,17 @@ const Graph = ({ fileData: data, history }) => {
             <Motivation data={filteredData} />
           </div>
         </div>
+        <h2>Mindset</h2>
         <div className="graph__row">
-          <div className="graph__graph">
-            <EtatEsprit data={filteredData} />
-          </div>
           <div className="graph__graph">
             <Archetype data={filteredData} />
           </div>
+          <div className="graph__graph">
+            <Mindset data={filteredData} />
+          </div>
         </div>
       </div>
-      <div>Number of people: {filteredData.length}</div>
+      <div>Team size: {filteredData.length}</div>
       <Filters data={data} setFilters={setFilters} filters={filters} />
     </div>
   );

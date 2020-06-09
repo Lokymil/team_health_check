@@ -9,12 +9,12 @@ const RadarModal = () => (
         <img src="/img/radar/sample.png" alt="Sample" height="250" />
       </div>
       <article className="radar-modal__caption">
-        <h3>Caption</h3>
+        <h4>Caption</h4>
         <ul>
           <li>Importance: higher value means higher impact and expectation</li>
           <li>Score: higher value means higher satisfaction</li>
         </ul>
-        <h3>How to read</h3>
+        <h4>How to read</h4>
         <p>
           For each motivator, whatever the importance, the higher score the
           better.
@@ -28,9 +28,8 @@ const RadarModal = () => (
           Medium and low importance motivators have lower expectation from your
           team. Then impact from low score might be ignored if you have other
           priorities. However, keep in mind that your team have low expectation
-          on those motivators, then it should be easy to fulfill what these
-          expectations. By fixing low importance motivators, you will reduce
-          risks of frustration.
+          on those motivators, then they should be easy to fulfill. By fixing
+          low importance motivators, you will reduce risks of frustration.
         </p>
       </article>
     </div>
