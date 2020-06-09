@@ -23,7 +23,7 @@ const Archetype = ({ data }) => {
   return (
     <>
       <div className="archetype__title-wrapper">
-        <h3 className="archetype__title">Details</h3>
+        <h3 className="archetype__title">Detailled</h3>
         <ArchetypeModal />
       </div>
       <div className="archetype__tab">

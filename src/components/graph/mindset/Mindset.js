@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import "./Mindset.scss";
+import MindsetModal from "./MindsetModal";
 
 const getInitial = () => [
   { id: "Critical", number: 0, color: "#e91e63" },
@@ -34,6 +36,10 @@ const Mindset = ({ data }) => {
 
   return (
     <>
+      <div className="mindset__title-wrapper">
+        <h3 className="mindset__title">Simplified</h3>
+        <MindsetModal />
+      </div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         role="img"
