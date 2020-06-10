@@ -4,6 +4,11 @@
     flex-direction: column;
   }
 
+  &__title-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
   &__content {
     display: flex;
     flex-direction: column;

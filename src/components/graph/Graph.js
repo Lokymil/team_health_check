@@ -6,6 +6,7 @@ import Archetype from "./archetype/Archetype";
 import Filters from "./Filters";
 import { withFileContext } from "../../context/FileContext";
 import "./Graph.scss";
+import DownloadResult from "./download/DownloadResult";
 
 const Graph = ({ fileData: data, history }) => {
   const [filters, setFilters] = useState([]);
@@ -24,7 +25,10 @@ const Graph = ({ fileData: data, history }) => {
 
   return (
     <div className="graph__wrapper">
-      <h1>Visualization</h1>
+      <div className="graph__title-wrapper">
+        <h1>Visualization</h1>
+        <DownloadResult data={filteredData} />
+      </div>
       <div className="graph__content">
         <h2>Motivation</h2>
         <div className="graph__row">
