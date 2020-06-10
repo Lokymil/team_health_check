@@ -223,3 +223,19 @@ export const csvToJson = (csv) => {
 
   return result;
 };
+
+export const jsonToCsv = (json) => {
+  let csv = "";
+  const headers = getStatsHeadersLabel();
+  csv += headers.join(",") + "\n";
+
+  const rows = json
+    .map((elem) => {
+      return headers.map((header) => elem[header]).join(",");
+    })
+    .join("\n");
+
+  csv += rows;
+
+  return csv;
+};
