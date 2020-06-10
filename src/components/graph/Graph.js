@@ -12,8 +12,8 @@ const Graph = ({ fileData: data, history }) => {
   const [filters, setFilters] = useState([]);
 
   if (!data || data.length === 0) {
-    history.push("/upload");
-    return "";
+    history.push("/visualize/upload");
+    return null;
   }
 
   let filteredData = data;
