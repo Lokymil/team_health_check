@@ -27,6 +27,11 @@ button {
 
   &:hover {
     cursor: pointer;
+    background-color: $dark_blue;
+  }
+
+  &:active {
+    background-color: $base_blue;
   }
 }
 
