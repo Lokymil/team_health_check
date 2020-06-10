@@ -11,7 +11,7 @@ const DownloadResult = ({ data }) => {
       download={"health_check.csv"}
       className="download__link button"
     >
-      Get my results
+      Download my result
     </a>
   );
 };
