@@ -4,7 +4,7 @@ import { csvToJson } from "../../utils";
 const CsvLoader = ({ onUpload }) => {
   const inputFile = useRef(null);
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const csv = await inputFile.current.files[0].text();
     onUpload(csvToJson(csv));
@@ -12,8 +12,8 @@ const CsvLoader = ({ onUpload }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>Upload CSV file:</label>
-      <input type="file" ref={inputFile} />
+      <label htmlFor="uploader">Upload CSV file:</label>
+      <input type="file" id="uploader" ref={inputFile} />
       <button>Upload</button>
     </form>
   );

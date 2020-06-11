@@ -9,7 +9,7 @@ const Home = () => {
   const sticky = useSticky(false);
 
   return (
-    <>
+    <main>
       <section id="theory--banner">
         <Header light sticky={sticky} />
         <div id="theory--banner--caption" className={classNames({ sticky })}>
@@ -86,7 +86,7 @@ const Home = () => {
           </Link>
         </div>
       </section>
-    </>
+    </main>
   );
 };
 
