@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import MotivatorsOrdering from "./MotivatorsOrdering";
 import SatisfactionScale from "./SatisfactionScale";
 import OneToTenScale from "./OneToTenScale";
-import { withFileContext } from "../../../context/FileContext";
+import { useFileContext } from "../../../context/FileContext";
 import "./Form.scss";
 
 const initialMotivators = [
@@ -18,12 +18,13 @@ const initialMotivators = [
   { name: "order", weight: 0 },
 ];
 
-const Form = ({ setFileData, history }) => {
+function Form({ history }) {
   const [competency, setCompetency] = useState(5);
   const [challenge, setChallenge] = useState(5);
   const [enterprise, setEnterprise] = useState(0);
   const [personnal, setPersonnal] = useState(0);
   const [motivators, setMotivators] = useState(initialMotivators);
+  const { setFileData } = useFileContext();
 
   const displayGraph = (e) => {
     e.preventDefault();
@@ -112,6 +113,6 @@ const Form = ({ setFileData, history }) => {
       </div>
     </form>
   );
-};
+}
 
-export default withFileContext(Form);
+export default Form;
