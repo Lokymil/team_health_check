@@ -1,7 +1,7 @@
+import React from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-import React, { useState } from "react";
 
-import { FileContext } from "./context/FileContext";
+import { FileContextProvider } from "./context/FileContext";
 import Form from "./components/interview/Form/Form";
 import Graph from "./components/graph/Graph";
 import Layout from "./components/layout/Layout";
@@ -12,11 +12,9 @@ import Footer from "./components/layout/Footer";
 
 import "./App.scss";
 
-const App = () => {
-  const [fileData, setFileData] = useState([]);
-
+function App() {
   return (
-    <FileContext.Provider value={{ fileData, setFileData }}>
+    <FileContextProvider>
       <BrowserRouter>
         <ScrollToTopOnNavigate />
         <Switch>
@@ -37,8 +35,8 @@ const App = () => {
         </Switch>
         <Footer />
       </BrowserRouter>
-    </FileContext.Provider>
+    </FileContextProvider>
   );
-};
+}
 
 export default App;

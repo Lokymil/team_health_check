@@ -1,11 +1,25 @@
-import React, { createContext } from "react";
+import React, { createContext, useContext, useState } from "react";
 
-export const FileContext = createContext({});
+const FileContext = createContext();
 
-export const withFileContext = Component => ownProps => (
-  <FileContext.Consumer>
-    {({ fileData, setFileData }) => (
-      <Component {...ownProps} fileData={fileData} setFileData={setFileData} />
-    )}
-  </FileContext.Consumer>
-);
+export function FileContextProvider({ initialData = [], children }) {
+  const [fileData, setFileData] = useState(initialData);
+
+  return (
+    <FileContext.Provider value={{ fileData, setFileData }}>
+      {children}
+    </FileContext.Provider>
+  );
+}
+
+export function useFileContext() {
+  const fileContext = useContext(FileContext);
+
+  if (!fileContext) {
+    throw new Error(
+      "useFileContext must be used within a FileContext.Provider"
+    );
+  }
+
+  return fileContext;
+}

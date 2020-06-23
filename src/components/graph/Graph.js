@@ -4,12 +4,13 @@ import Motivation from "./motivation/Motivation";
 import Mindset from "./mindset/Mindset";
 import Archetype from "./archetype/Archetype";
 import Filters from "./Filters";
-import { withFileContext } from "../../context/FileContext";
+import { useFileContext } from "../../context/FileContext";
 import "./Graph.scss";
 import DownloadResult from "./download/DownloadResult";
 
-const Graph = ({ fileData: data, history }) => {
+function Graph({ history }) {
   const [filters, setFilters] = useState([]);
+  const { fileData: data } = useFileContext();
 
   if (!data || data.length === 0) {
     history.push("/visualize/upload");
@@ -53,6 +54,6 @@ const Graph = ({ fileData: data, history }) => {
       <Filters data={data} setFilters={setFilters} filters={filters} />
     </div>
   );
-};
+}
 
-export default withFileContext(Graph);
+export default Graph;

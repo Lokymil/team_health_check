@@ -1,10 +1,12 @@
 import React from "react";
 import CsvLoader from "./CsvLoader";
 import FileFormat from "./FileFormat";
-import { withFileContext } from "../../context/FileContext";
+import { useFileContext } from "../../context/FileContext";
 
-const Uploader = ({ setFileData, history }) => {
-  const handleUpload = data => {
+function Uploader({ history }) {
+  const { setFileData } = useFileContext();
+
+  const handleUpload = (data) => {
     setFileData(data);
     history.push("/visualize/graph");
   };
@@ -16,6 +18,6 @@ const Uploader = ({ setFileData, history }) => {
       <FileFormat />
     </div>
   );
-};
+}
 
-export default withFileContext(Uploader);
+export default Uploader;

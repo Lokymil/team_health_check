@@ -46,6 +46,7 @@
     "axe-core": "^3.5.4",
     "cypress": "^4.8.0",
     "cypress-axe": "^0.8.1",
+    "prettier": "^2.0.5",
     "start-server-and-test": "^1.11.0"
   }
 }
