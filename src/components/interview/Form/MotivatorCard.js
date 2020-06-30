@@ -26,6 +26,7 @@ const MotivatorCard = ({
         className={classNames("motivators--weight", {
           selected: motivator.weight === 1,
         })}
+        title="happy"
       >
         <div className="icon icon-happy" />
       </button>
@@ -34,6 +35,7 @@ const MotivatorCard = ({
         className={classNames("motivators--weight", {
           selected: motivator.weight === 0,
         })}
+        title="neutral"
       >
         <div className="icon icon-neutral" />
       </button>
@@ -42,6 +44,7 @@ const MotivatorCard = ({
         className={classNames("motivators--weight", {
           selected: motivator.weight === -1,
         })}
+        title="sad"
       >
         <div className="icon icon-sad" />
       </button>
